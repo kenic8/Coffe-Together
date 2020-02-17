@@ -1,0 +1,39 @@
+#map {
+  height: 100%;
+}
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#beacons {
+  display: grid;
+  grid-template-columns: 100%;
+  padding: 10px;
+  width: 50%;
+}
+
+@media (min-width: 600px) {
+  #beacons {
+    grid-template-columns: 50% 50%;
+  }
+}
+
+@media (min-width: 992px) {
+  #beacons {
+    grid-template-columns: 33% 33% 33%;
+  }
+}
+
+#beacons > article {
+  text-align: center;
+  padding: 10px;
+}
+
+#beacons > article img {
+  max-width: 300px;
+  width: 100%;
+  margin-bottom: 1em;
+}
