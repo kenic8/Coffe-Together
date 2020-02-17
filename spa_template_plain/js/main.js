@@ -1,22 +1,70 @@
 "use strict";
 
-async function loadPersons() {
-  let response = await fetch("https://randomuser.me/api/?results=9");
-  let jsonData = await response.json();
-  appendPersons(jsonData.results);
+// Your web app's Firebase configuration
+var firebaseConfig = {
+  apiKey: "AIzaSyD6mkTD7Od_kKEftLVvPkslOpFjhD20w-s",
+  authDomain: "mdu-storage.firebaseapp.com",
+  databaseURL: "https://mdu-storage.firebaseio.com",
+  projectId: "mdu-storage",
+  storageBucket: "mdu-storage.appspot.com",
+  messagingSenderId: "74687313907",
+  appId: "1:74687313907:web:3f317b9aba13a40d680486",
+  measurementId: "G-E0H56NHG48"
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+
+// ========== FIREBASE AUTH ========== //
+// Listen on authentication state change
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) { // if user exists and is authenticated
+    userAuthenticated(user);
+  } else { // if user is not logged in
+    userNotAuthenticated();
+  }
+});
+
+function userAuthenticated(user) {
+  appendUserData(user);
+  hideTabbar(false);
+  showLoader(false);
 }
 
-loadPersons();
+function userNotAuthenticated() {
+  hideTabbar(true);
+  showPage("login");
 
-function appendPersons(persons) {
-  for (let person of persons) {
-    document.querySelector("#grid-persons").innerHTML += `
-      <article>
-      <img src="${person.picture.large}">
-      <h4>${person.name.first} ${person.name.last}</h4>
-      <p><a href="mailto:${person.email}">${person.email}</a></p>
-      </article>
-      `;
+  // Firebase UI configuration
+  const uiConfig = {
+    credentialHelper: firebaseui.auth.CredentialHelper.NONE,
+    signInOptions: [
+      firebase.auth.EmailAuthProvider.PROVIDER_ID,
+    ],
+    signInSuccessUrl: '#map'
+  };
+  // Init Firebase UI Authentication
+  const ui = new firebaseui.auth.AuthUI(firebase.auth());
+  ui.start('#firebaseui-auth-container', uiConfig);
+}
+
+// show and hide tabbar
+function hideTabbar(hide) {
+  let tabbar = document.querySelector('.tabbar');
+  if (hide) {
+    tabbar.classList.add("hide");
+  } else {
+    tabbar.classList.remove("hide");
   }
-  showLoader(false);
+}
+
+// sign out user
+function logout() {
+  firebase.auth().signOut();
+}
+
+function appendUserData(user) {
+  document.querySelector('#profile').innerHTML += `
+    <h3>${user.displayName}</h3>
+    <p>${user.email}</p>
+  `;
 }

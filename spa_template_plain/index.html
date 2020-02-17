@@ -8,38 +8,50 @@
   <meta name="description" content="Get started with HTML, CSS and JavaScript">
   <meta name="author" content="Rasmus Cederdorff">
   <link rel="stylesheet" href="css/main.css">
+  <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
   <link rel="shortcut icon" type="image/png" href="images/favicon.png" />
 </head>
 
 <body onhashchange="pageChange()">
   <!-- tabbar navigation -->
   <nav class="tabbar">
-    <a href="#home">Home</a>
-    <a href="#persons">Persons</a>
+    <a href="#map">Home</a>
+    <a href="#login">Login</a>
+    <a href="#profile">Profile</a>
   </nav>
 
   <!-- pages -->
   <!-- home page -->
-  <section id="home" class="page">
+  <section id="map" class="page">
     <header class="topbar">
-      <h2>Home</h2>
+      <h2>map</h2>
     </header>
-    <h3>SPA Template Plain</h3>
-    <p>My Single Page Web App Template</p>
   </section>
 
-  <!-- persons page -->
-  <section id="persons" class="page">
+    <!-- contact page -->
+    <section id="profile" class="page">
+      <header class="topbar">
+        <h2>Profile</h2>
+        <a class="right" href="#" onclick="logout()">Logout</a>
+      </header>
+  
+    </section>
+
+  <!-- login page -->
+  <section id="login" class="page">
     <header class="topbar">
-      <h2>Persons</h2>
+      <h2>Login</h2>
     </header>
-    <div id="grid-persons" class="grid-container"></div>
+    <!-- firebase auth container  -->
+    <section id="firebaseui-auth-container"></section>
   </section>
 
-  <!-- loader  -->
-  <div id="loader">
-    <div class="spinner"></div>
-  </div>
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-app.js"></script>
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-firestore.js"></script>
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
 
   <!-- SPA functionality  -->
   <script src="js/spa.js"></script>
