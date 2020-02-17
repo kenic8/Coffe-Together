@@ -311,7 +311,7 @@ function initMap() {
 let beaconsarray = [];
 
 function beacon() {
-  fetch("/json/beacons.json")
+  fetch("json/beacons.json")
     .then(Response => {
       return Response.json();
     })
