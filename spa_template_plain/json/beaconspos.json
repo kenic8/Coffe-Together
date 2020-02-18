@@ -1,0 +1,19 @@
+[
+    {
+    "cafe": "barraso",
+    "coord": [56.144817, 10.198445]
+    },
+    {
+    "cafe": "en anden cafe bar",
+    "coord": [56.147006, 10.194895]
+    },
+    {
+      "cafe": "GLAD CAFFE",
+      "coord": [56.142006, 10.18195]
+      },
+      {
+        "cafe": "SPEEDES KON CARLES",
+        "coord": [56.164006, 10.199895]
+      }
+  ]
+    

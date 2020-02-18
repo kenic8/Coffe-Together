@@ -42,9 +42,6 @@ function pageChange() {
   showPage(page);
 }
 
-<<<<<<< HEAD
-pageChange(); // called by default when the app is loaded for the first time
-=======
 pageChange(); // called by default when the app is loaded for the first time
 
 // to shoe and hide the loader
@@ -56,4 +53,3 @@ function showLoader(show) {
     loader.classList.add("hide");
   }
 }
->>>>>>> master
