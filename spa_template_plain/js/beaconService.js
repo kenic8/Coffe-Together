@@ -37,6 +37,7 @@ appendBeacon(beacons, value1) {
         htmlTemplate += `
         <article>
           <h2>${beacon.name}</h2>
+          <h2>${beacon.emne}</h2>
         </article>
         `;
       }
@@ -53,6 +54,17 @@ appendBeacon(beacons, value1) {
   }).catch(function(error) {
     console.log("Error getting document:", error);
   });
+}
+/// create a beaconpost object
+
+createBeacon(name, emne, img, cafe) {
+  let newBeacon = {
+    cafe: cafe,
+    name: name,
+    emne: emne,
+    img: img
+  };
+  this.opslag.add(newBeacon);
 }
 
 }
@@ -88,41 +100,37 @@ appendBeacon(beacons, value1) {
   // <img src="${beacon.img}">
 
   // ========== CREATE ==========
-  // add a new user to firestore (database)
-  // createBeacon(name, emne, img) {
-  //   let newBeacon = {
-  //     name: name,
-  //     emne: emne,
-  //     img: img
-  //   };
+  //add a new user to firestore (database)
 
-  //   this.userRef.add(newBeacon);
-  // }
+  
 
-// }
-////firebase create users
 
-// let _beaconService = new beaconsService();
+  
+  
+let _beaconService = new beaconsService();
 
-// window.createBeacon = () => {
-//   let nameInput = document.querySelector("#name");
-//   let emneInput = document.querySelector("#emne");
-//   let imageInput = document.querySelector("#imagePreview");
-//   console.log(nameInput.value);
-//   console.log(emneInput.value);
-//   console.log(imageInput.src);
-//   _beaconService.createBeacon(nameInput.value, emneInput.value, imageInput.src);
-// };
+window.createBeacon = () => {
+  let cafeInput = document.querySelector("#dropdowncafe")
+  let nameInput = document.querySelector("#name");
+  let emneInput = document.querySelector("#emne");
+  let imageInput = document.querySelector("#imagePreview");
+  console.log(nameInput.value);
+  console.log(emneInput.value);
+  console.log(imageInput.src);
+
+  //tager value fra input felter i html også dropdown
+  _beaconService.createBeacon(nameInput.value, emneInput.value, imageInput.src,cafeInput.value);
+};
 ///image
-// window.previewImage = (file, previewId) => {
-//   if (file) {
-//     _selectedImgFile = file;
-//     let reader = new FileReader();
-//     reader.onload = event => {
-//       document
-//         .querySelector("#" + previewId)
-//         .setAttribute("src", event.target.result);
-//     };
-//     reader.readAsDataURL(file);
-//   }
-// };
+window.previewImage = (file, previewId) => {
+  if (file) {
+    _selectedImgFile = file;
+    let reader = new FileReader();
+    reader.onload = event => {
+      document
+        .querySelector("#" + previewId)
+        .setAttribute("src", event.target.result);
+    };
+    reader.readAsDataURL(file);
+  }
+};

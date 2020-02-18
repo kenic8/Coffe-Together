@@ -1,19 +1,19 @@
 [
     {
-    "cafe": "barraso",
-    "coord": [56.144817, 10.198445]
+    "cafe": "baresso",
+    "coord": [56.155630, 10.207800]
     },
     {
-    "cafe": "en anden cafe bar",
-    "coord": [56.147006, 10.194895]
+    "cafe": "cafecomein",
+    "coord": [56.157660, 10.202330]
     },
     {
-      "cafe": "GLADKAFFE",
-      "coord": [56.142006, 10.18195]
+      "cafe": "kjærskaffebar",
+      "coord": [56.152470, 10.208780]
       },
       {
-        "cafe": "SPEEDES KON CARLES",
-        "coord": [56.164006, 10.199895]
+        "cafe": "streetcoffee",
+        "coord": [56.157590, 10.201630]
       }
   ]
     

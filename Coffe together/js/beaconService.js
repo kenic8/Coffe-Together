@@ -44,7 +44,7 @@ export class beaconsService {
     let newBeacon = {
       name: name,
       emne: emne,
-      img: img
+      img: img,
     };
 
     this.userRef.add(newBeacon);
@@ -64,6 +64,9 @@ window.createBeacon = () => {
   console.log(imageInput.src);
   _beaconService.createBeacon(nameInput.value, emneInput.value, imageInput.src);
 };
+
+
+
 ///image
 window.previewImage = (file, previewId) => {
   if (file) {

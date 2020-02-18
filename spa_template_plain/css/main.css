@@ -19,6 +19,7 @@ html {
 }
 
 body {
+  height: 70vh;
   margin: 0;
 }
 
@@ -54,7 +55,7 @@ h3 {
 /* ---------- tabbar styling ---------- */
 .tabbar {
   background-color: var(--green);
-  position: fixed;
+  position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
@@ -89,7 +90,7 @@ h3 {
 .page {
   display: none;
   /*min heigh is screen heigh minus height of tab and top bar */
-  min-height: calc(100vh - 110px);
+  min-height: calc(100vh - 200px);
   background: var(--light-grey);
   animation: fadeIn 0.4s;
   /* padding equals height of tabbar and topbar */

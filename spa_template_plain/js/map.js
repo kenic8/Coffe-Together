@@ -15,7 +15,7 @@ let map;
   // opset map properties med styling fra map.json "Mapstyling = map.json"
   map = new google.maps.Map(document.getElementById("map"), {
     center: { lat: 56.162939, lng: 10.203921 },
-    zoom: 13,
+    zoom: 14,
     disableDefaultUI: true,
     styles: Mapstyling
   });
