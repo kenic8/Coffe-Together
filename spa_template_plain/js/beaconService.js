@@ -121,7 +121,13 @@ window.createBeacon = () => {
   //tager value fra input felter i html også dropdown
   _beaconService.createBeacon(nameInput.value, emneInput.value, imageInput.src,cafeInput.value);
 };
-///image
+
+
+
+
+
+
+///image--------------------------------------
 window.previewImage = (file, previewId) => {
   if (file) {
     _selectedImgFile = file;

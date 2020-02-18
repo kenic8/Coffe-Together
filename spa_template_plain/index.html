@@ -59,11 +59,7 @@
       <div id="user-container" class="grid-container"></div>
       <form>
         <select id="dropdowncafe" name = "kaffe steder">
-          <option value = "Computer Architecture" selected>Vælg kaffebar</option>
-          <option value = "baresso"> Baresso</option>
-          <option value = "cafecomein">Cafecomein</option>
-          <option value = "kjærskaffebar">Kjærskaffebar</option>
-          <option value = "streetcoffee">Streetcoffee</option>
+  
        </select>
         <input type="text" id="name" placeholder="Name" required />
         <input type="text" id="emne" placeholder="Emne" required />
@@ -74,9 +70,12 @@
           onchange="previewImage(this.files[0], 'imagePreview')"
         />
         <img id="imagePreview" class="image-preview" />
-        <button type="button" name="button" onclick="createBeacon()">
-          GO!
-        </button>
+        <a href="#home">
+          <button type="button" name="button" onclick="createBeacon()">
+            GO!
+          </button>
+        </a>
+       
       </form>
     </section>
 

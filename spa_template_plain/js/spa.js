@@ -53,3 +53,31 @@ function showLoader(show) {
     loader.classList.add("hide");
   }
 }
+
+
+
+/////////// til at render create options så vi kan få value til passe til value fra json i vores ifstatemant i beaconservice
+
+let cafeer = [];
+
+fetch("json/beaconspos.json")
+  .then(Response => {
+    return Response.json();
+  })
+  .then(function(json) {
+    cafeer = json;
+let htmlTemplate ="";
+    for (let navn of cafeer) {
+     
+       htmlTemplate += `
+            <option value= "${navn.cafe}">${navn.cafe}</option>
+          `
+          document.querySelector("#dropdowncafe").innerHTML = htmlTemplate;
+        
+    }
+  
+  });
+
+
+  
+
