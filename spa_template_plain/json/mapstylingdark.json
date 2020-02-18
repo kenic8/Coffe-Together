@@ -237,5 +237,20 @@
         "color": "#92998d"
       }
     ]
+  },
+  {
+    "elementType": "labels.text.stroke",
+    "stylers": [
+      {"lightness": -60},
+      {"saturation": -60}
+    ]
+  },
+  {
+    "elementType": "geometry",
+    "stylers": [
+      {"lightness": -60},
+      {"saturation": -60}
+    ]
   }
 ]
+

@@ -27,31 +27,31 @@
     <!-- pages -->
     <!-- home page -->
     <section id="home" class="page">
-      <header class="topbar">
-        <h2>Home</h2>
-      </header>
       <!-- body content -->
-      <a href="#create">
-        <img
-          id="addbutton"
-          src="https://cdn3.iconfinder.com/data/icons/simple-toolbar/512/add_plus_new_user_green_page_file_up_text-512.png"
-          alt="createimg"
-        />
-      </a>
-
-      <div id="map"></div>
-      <div>
-        <div id="beacons"></div>
+      <div id="forsideIndholdWrap">
+      <div id="mapwrap">
+        <div id="mapoverlay"></div>
+        <div id="map"></div>
       </div>
+        <div id="opslagmenuwrap">
+          <div id="imgwrap">
+          </div>
+          <div id=opslagwrapwrap>
+
+          </div>
+        </div>
+    </div>
     </section>
 
-    <!-- persons page -->
+    <!-- Chat page -->
     <section id="side2" class="page">
       <header class="topbar">
         <h2>Side2</h2>
       </header>
     </section>
 
+
+<!-- create page -->
     <section id="create" class="page">
       <header class="topbar">
         <h2>Create beacon</h2>
@@ -78,25 +78,13 @@
       </form>
     </section>
 
-    <!-- loader  
-    
-    <div id="loader">
-      <div class="spinner"></div>
-    </div>
-    -->
-
     <!-- scipts  -->
-
-    <!-- SPA functionality  -->
     <script src="js/spa.js"></script>
-    <!-- main js file -->
-    <!-- <script type="module" src="js/beaconService.js"></script> -->
-
     <script type="module" src="js/map.js"></script>
-
     <script type="module" src="js/beaconService.js"></script>
 
 
+    <!-- Mao API -->
     <script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDV4i1136Altv5jZLueDEt5gMTHO5dyU6o"
       async
@@ -112,3 +100,4 @@
     <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-firestore.js"></script>
   </body>
 </html>
+

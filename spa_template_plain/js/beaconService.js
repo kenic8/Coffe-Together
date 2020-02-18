@@ -30,30 +30,27 @@ read(value1) {
 appendBeacon(beacons, value1) {
   this.userRef.get().then(function(doc) {
     if (doc.id == ""+value1+"") {
-    console.log(value1)
     let htmlTemplate = "";
       for (let beacon of beacons) {
         if (beacon.cafe == value1) {
         htmlTemplate += `
-        <article>
-          <h2>${beacon.name}</h2>
-          <h2>${beacon.emne}</h2>
-        </article>
+        <div id="opslagwrap">
+        <div id="profilimg"></div>
+        <div id="tekstogshit">
+        <h2>${beacon.name}</h2>
+        <p>${beacon.emne}</p>
+        </div>
+        <div id="infoogshit">
+        <p>p 2</p>
+        <p>2t 22m</p>
+        </div>
+        </div>
         `;
       }
       }
-    
-    document.querySelector("#beacons").innerHTML = htmlTemplate;
-    
-    
-    // else {
-    //     // doc.data() will be undefined in this case
-    //     console.log("No such document!");
-    // }
+    document.getElementById("opslagwrapwrap").innerHTML = htmlTemplate;
     }
-  }).catch(function(error) {
-    console.log("Error getting document:", error);
-  });
+  })
 }
 /// create a beaconpost object
 
