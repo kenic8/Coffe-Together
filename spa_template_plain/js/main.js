@@ -1,4 +1,5 @@
 "use strict";
+<<<<<<< HEAD
 
 // Your web app's Firebase configuration
 var firebaseConfig = {
@@ -68,3 +69,5 @@ function appendUserData(user) {
     <p>${user.email}</p>
   `;
 }
+=======
+>>>>>>> master

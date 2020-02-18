@@ -42,4 +42,18 @@ function pageChange() {
   showPage(page);
 }
 
+<<<<<<< HEAD
 pageChange(); // called by default when the app is loaded for the first time
+=======
+pageChange(); // called by default when the app is loaded for the first time
+
+// to shoe and hide the loader
+function showLoader(show) {
+  let loader = document.getElementById("loader");
+  if (show) {
+    loader.classList.remove("hide");
+  } else {
+    loader.classList.add("hide");
+  }
+}
+>>>>>>> master

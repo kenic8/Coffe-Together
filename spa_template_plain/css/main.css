@@ -8,6 +8,7 @@
 }
 
 /* ---------- general styling ---------- */
+
 html {
   color: var(--text-color-dark);
   font-family: Helvetica, Arial, sans-serif;
@@ -99,11 +100,11 @@ h3 {
 /* fade in */
 @keyframes fadeIn {
   from {
-    opacity: 0
+    opacity: 0;
   }
 
   to {
-    opacity: 1
+    opacity: 1;
   }
 }
 
@@ -175,12 +176,12 @@ h3 {
   }
 }
 
-.grid-container>article {
+.grid-container > article {
   text-align: center;
   padding: 10px;
 }
 
-.grid-container>article img {
+.grid-container > article img {
   max-width: 300px;
   width: 100%;
   margin-bottom: 1em;
@@ -224,3 +225,46 @@ select {
   border: 0;
   border-radius: 0;
 }
+
+/* styling til beacons slettes senere!*/
+
+#map {
+  height: 90vh;
+}
+
+#beacons {
+  grid-template-columns: 100%;
+  padding: 10px;
+  width: 100%;
+}
+
+@media (min-width: 600px) {
+  #beacons {
+    grid-template-columns: 50% 50%;
+  }
+}
+
+@media (min-width: 992px) {
+  #beacons {
+    grid-template-columns: 33% 33% 33%;
+  }
+}
+
+#beacons > article {
+  text-align: center;
+  padding: 10px;
+}
+
+#beacons > article img {
+  max-width: 300px;
+  width: 10%;
+  margin-bottom: 1em;
+}
+
+#addbutton {
+  transform: translate(20vh, 70vh);
+  position: absolute;
+  z-index: 99;
+  width: 15%;
+}
+/* styling til beacons slettes senere!*/

@@ -1,6 +1,21 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>SPA Template Plain</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta
+      name="description"
+      content="Get started with HTML, CSS and JavaScript"
+    />
+    <meta name="author" content="Jesson - Carl- Viggo" />
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
 
+<<<<<<< HEAD
 <head>
   <meta charset="utf-8">
   <title>SPA Template Plain</title>
@@ -60,3 +75,94 @@
 </body>
 
 </html>
+=======
+  <body onhashchange="pageChange()">
+    <!-- tabbar navigation -->
+    <nav class="tabbar">
+      <a href="#home">map</a>
+      <a href="#side2">Chat</a>
+      <a href="#create">Create</a>
+      <a href="#opslag">Opslag</a>
+    </nav>
+
+    <!-- pages -->
+    <!-- home page -->
+    <section id="home" class="page">
+      <header class="topbar">
+        <h2>Home</h2>
+      </header>
+      <!-- body content -->
+      <a href="#create">
+        <img
+          id="addbutton"
+          src="https://cdn3.iconfinder.com/data/icons/simple-toolbar/512/add_plus_new_user_green_page_file_up_text-512.png"
+          alt="createimg"
+        />
+      </a>
+
+      <div id="map"></div>
+      <div>
+        <div id="beacons"></div>
+      </div>
+    </section>
+
+    <!-- persons page -->
+    <section id="side2" class="page">
+      <header class="topbar">
+        <h2>Side2</h2>
+      </header>
+    </section>
+
+    <section id="create" class="page">
+      <header class="topbar">
+        <h2>Create beacon</h2>
+      </header>
+      <div id="user-container" class="grid-container"></div>
+      <form>
+        <input type="text" id="name" placeholder="Name" required />
+        <input type="text" id="emne" placeholder="Emne" required />
+        <input
+          type="file"
+          id="img"
+          accept="image/*"
+          onchange="previewImage(this.files[0], 'imagePreview')"
+        />
+        <img id="imagePreview" class="image-preview" />
+        <button type="button" name="button" onclick="createBeacon()">
+          GO!
+        </button>
+      </form>
+    </section>
+
+    <!-- loader  
+    
+    <div id="loader">
+      <div class="spinner"></div>
+    </div>
+    -->
+
+    <!-- scipts  -->
+
+    <!-- SPA functionality  -->
+    <script src="js/spa.js"></script>
+    <!-- main js file -->
+    <script src="js/main.js"></script>
+    <script type="module" src="js/beaconService.js"></script>
+
+    <script type="module" src="js/map.js"></script>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDV4i1136Altv5jZLueDEt5gMTHO5dyU6o"
+      async
+      defer
+    ></script>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.8.2/firebase-app.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.8.2/firebase-analytics.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-firestore.js"></script>
+  </body>
+</html>
+>>>>>>> master
