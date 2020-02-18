@@ -1,7 +1,6 @@
 "use strict";
+import { firebaseDB } from "./firebase.js";
 import { beaconsService } from "./beaconService.js";
-// // let _selectedImgFile = "";
-// console.log(beaconsService)
 let map;
 
   // Hent mapstyling fra map.json
@@ -44,12 +43,20 @@ let map;
     });
     marker.set("id", i);
 
+
+    var personer = 0;
     // klik på markers og find hvilken 
     marker.addListener("click", function() {
-      console.log(koordinaterPos[this.id].cafe)
-      new beaconsService();
+      personer += 1;
+      // console.log(koordinaterPos[this.id].cafe)
+      firebaseDB.collection("beacons").doc(""+koordinaterPos[this.id].cafe+"").set({
+        name: "personer"
+      });
+      
+      new beaconsService(""+koordinaterPos[this.id].cafe+"");
       });
 
   }
 });
+
 
