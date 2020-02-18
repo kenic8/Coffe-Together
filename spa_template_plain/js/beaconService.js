@@ -1,6 +1,7 @@
 import { firebaseDB } from "./firebase.js";
 let _selectedImgFile = "";
 
+// this.read();
 export class beaconsService {
   constructor() {
     this.userRef = firebaseDB.collection("beacons");
@@ -12,7 +13,6 @@ export class beaconsService {
     // watch the database ref for changes
     this.userRef.onSnapshot(snapshotData => {
       let beacon = [];
-
       snapshotData.forEach(doc => {
         const beacons = doc.data();
         beacons.id = doc.id;
@@ -50,29 +50,30 @@ export class beaconsService {
   }
 }
 
+
 ////firebase create users
 
-let _beaconService = new beaconsService();
+// let _beaconService = new beaconsService();
 
-window.createBeacon = () => {
-  let nameInput = document.querySelector("#name");
-  let emneInput = document.querySelector("#emne");
-  let imageInput = document.querySelector("#imagePreview");
-  console.log(nameInput.value);
-  console.log(emneInput.value);
-  console.log(imageInput.src);
-  _beaconService.createBeacon(nameInput.value, emneInput.value, imageInput.src);
-};
+// window.createBeacon = () => {
+//   let nameInput = document.querySelector("#name");
+//   let emneInput = document.querySelector("#emne");
+//   let imageInput = document.querySelector("#imagePreview");
+//   console.log(nameInput.value);
+//   console.log(emneInput.value);
+//   console.log(imageInput.src);
+//   _beaconService.createBeacon(nameInput.value, emneInput.value, imageInput.src);
+// };
 ///image
-window.previewImage = (file, previewId) => {
-  if (file) {
-    _selectedImgFile = file;
-    let reader = new FileReader();
-    reader.onload = event => {
-      document
-        .querySelector("#" + previewId)
-        .setAttribute("src", event.target.result);
-    };
-    reader.readAsDataURL(file);
-  }
-};
+// window.previewImage = (file, previewId) => {
+//   if (file) {
+//     _selectedImgFile = file;
+//     let reader = new FileReader();
+//     reader.onload = event => {
+//       document
+//         .querySelector("#" + previewId)
+//         .setAttribute("src", event.target.result);
+//     };
+//     reader.readAsDataURL(file);
+//   }
+// };

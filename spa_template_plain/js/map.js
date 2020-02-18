@@ -1,9 +1,7 @@
 "use strict";
 import { beaconsService } from "./beaconService.js";
-const append = new beaconsService();
-
-console.log(append);
-
+// // let _selectedImgFile = "";
+// console.log(beaconsService)
 let map;
 
   // Hent mapstyling fra map.json
@@ -46,10 +44,12 @@ let map;
     });
     marker.set("id", i);
 
-    // klik på markers og find hvilken
+    // klik på markers og find hvilken 
     marker.addListener("click", function() {
       console.log(koordinaterPos[this.id].cafe)
+      new beaconsService();
       });
+
   }
 });
 
