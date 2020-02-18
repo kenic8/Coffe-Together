@@ -35,7 +35,7 @@ appendBeacon(beacons, value1) {
         if (beacon.cafe == value1) {
         htmlTemplate += `
         <div id="opslagwrap">
-        <div id="profilimg"></div>
+        <div id="profilimg" style="background-image: url('${beacon.img}')"></div>
         <div id="tekstogshit">
         <h2>${beacon.name}</h2>
         <p>${beacon.emne}</p>

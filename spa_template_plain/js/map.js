@@ -15,7 +15,7 @@ let map;
   // opset map properties med styling fra map.json "Mapstyling = map.json"
   map = new google.maps.Map(document.getElementById("map"), {
     center: { lat: 56.162939, lng: 10.203921 },
-    zoom: 12,
+    zoom: 15,
     disableDefaultUI: true,
     styles: Mapstyling
 
@@ -67,7 +67,7 @@ function transformstuff(savedId) {
   document.getElementById("forsideIndholdWrap").style.overflowY = "initial"
 
   // map stuff
-  map.setZoom(14);
+  map.setZoom(16);
   map.panTo({ lat: koordinaterPos[savedId].coord[0], lng: koordinaterPos[savedId].coord[1]});
   let Mapstylingdark = [];
   fetch("json/mapstylingdark.json")
@@ -90,8 +90,7 @@ function randofunction() {
     document.getElementById("forsideIndholdWrap").style.overflowY = "hidden"
   
     // map stuff
-    map.setZoom(12);
-    map.panTo({ lat: 56.162939, lng: 10.203921 });
+    map.setZoom(15);
     let Mapstylingdark = [];
     fetch("json/mapstyling.json")
       .then(Response => {
