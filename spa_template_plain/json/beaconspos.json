@@ -14,6 +14,23 @@
       {
         "cafe": "streetcoffee",
         "coord": [56.157590, 10.201630]
-      }
+      },
+
+      {
+        "cafe": "baresso2",
+        "coord": [56.150630, 10.207800]
+        },
+        {
+        "cafe": "cafecomein2",
+        "coord": [56.157660, 10.208330]
+        },
+        {
+          "cafe": "kjærskaffebar2",
+          "coord": [56.159470, 10.208780]
+          },
+          {
+            "cafe": "streetcoffee2",
+            "coord": [56.157590, 10.204630]
+          }
   ]
     

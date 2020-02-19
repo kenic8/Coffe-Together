@@ -100,6 +100,38 @@ createBeacon(name, emne, img, cafe) {
   //add a new user to firestore (database)
 
   
+  const video = document.querySelector('video');
+  const canvas = document.querySelector('canvas');
+  const takepicbut = document.querySelector('#takepicbut');
+  let imagePreview = document.querySelector('#imagePreview');
+  
+
+  let sheet;
+  
+  takepicbut.addEventListener("click", hello);
+  
+  
+  const constraints = {
+  video: true
+  };
+  var image1;
+  var file;
+  
+  navigator.mediaDevices.getUserMedia(constraints).
+  then((stream) => {video.srcObject = stream});
+  
+  function hello() {
+    console.log("virker")
+        // $("#imageeditbg").css('display', 'initial');
+        canvas.width = video.videoWidth;
+        canvas.height = video.videoHeight;
+        canvas.getContext('2d').drawImage(video, 0, 0);
+        imagePreview.style.background = "url("+canvas.toDataURL('image/webp')+")";
+        sheet = ""+canvas.toDataURL('image/webp')+""
+  };
+  
+
+  
 
 
   
@@ -116,7 +148,7 @@ window.createBeacon = () => {
   console.log(imageInput.src);
 
   //tager value fra input felter i html også dropdown
-  _beaconService.createBeacon(nameInput.value, emneInput.value, imageInput.src,cafeInput.value);
+  _beaconService.createBeacon(nameInput.value, emneInput.value, sheet, cafeInput.value);
 };
 
 
@@ -124,16 +156,19 @@ window.createBeacon = () => {
 
 
 
-///image--------------------------------------
-window.previewImage = (file, previewId) => {
-  if (file) {
-    _selectedImgFile = file;
-    let reader = new FileReader();
-    reader.onload = event => {
-      document
-        .querySelector("#" + previewId)
-        .setAttribute("src", event.target.result);
-    };
-    reader.readAsDataURL(file);
-  }
-};
+
+
+
+// // /image--------------------------------------
+// window.previewImage = (previewId) => {
+//   if (file) {
+//     _selectedImgFile = file;
+//     let reader = new FileReader();
+//     reader.onload = event => {
+//       document
+//         .querySelector("#" + previewId)
+//         .setAttribute("src", event.target.result);
+//     };
+//     reader.readAsDataURL(file);
+//   }
+// };

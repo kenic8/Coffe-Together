@@ -157,6 +157,7 @@ select {
   height: 100%;
   background: blueviolet;
   border-radius: 50%;
+  background-size: contain;
 }
 
 #infoogshit {
@@ -181,3 +182,28 @@ a[href^="https://maps.google.com/maps"]{display:none !important}
     background:none !important;
 }
 
+
+
+
+/* vid */
+video {
+  height: 100vh;
+  width: 100vw;
+}
+
+#takepicbut {
+  height: 90px;
+  width: 90px;
+  background-color: red;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 80%;
+  left: 50%;
+  border-radius: 50%;
+}
+
+#imagePreview {
+  height: 500px;
+  width: 500px;
+  background-color: blue;
+}

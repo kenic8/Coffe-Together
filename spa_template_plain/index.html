@@ -62,21 +62,34 @@
        </select>
         <input type="text" id="name" placeholder="Name" required />
         <input type="text" id="emne" placeholder="Emne" required />
-        <input
+        <!-- <input
           type="file"
           id="img"
           accept="image/*"
-          onchange="previewImage(this.files[0], 'imagePreview')"
         />
-        <img id="imagePreview" class="image-preview" />
+        <img id="imagePreview" class="image-preview" /> -->
         <a href="#home">
           <button type="button" name="button" onclick="createBeacon()">
             GO!
           </button>
         </a>
-       
       </form>
+      <div id="imagePreview" class="image-preview"></div>
+      <div id="takepicbut"></div>
     </section>
+
+    <!-- Opslag page -->
+    <section id="opslag" class="page">
+      <video autoplay></video>
+      <div id="takepicbut" onclick="takepic()"></div>
+      <canvas style="display:none;"></canvas>
+    </section>
+
+    <script>
+
+    </script>
+
+
 
     <!-- scipts  -->
     <script src="js/spa.js"></script>
