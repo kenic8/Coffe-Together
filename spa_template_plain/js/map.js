@@ -2,7 +2,6 @@
 // import { firebaseDB } from "./firebase.js";
 import { beaconsService } from "./beaconService.js";
 let map;
-
   // Hent mapstyling fra map.json
   let Mapstyling = [];
   fetch("json/mapstyling.json")
@@ -18,9 +17,11 @@ let map;
     zoom: 15,
     disableDefaultUI: true,
     styles: Mapstyling
+    
 
   });
 });
+
 
   // Hent koordinater fra beaconpos.json
   let koordinaterPos = [];
@@ -69,6 +70,7 @@ function transformstuff(savedId) {
   // map stuff
   map.setZoom(16);
   map.panTo({ lat: koordinaterPos[savedId].coord[0], lng: koordinaterPos[savedId].coord[1]});
+  
   let Mapstylingdark = [];
   fetch("json/mapstylingdark.json")
     .then(Response => {
