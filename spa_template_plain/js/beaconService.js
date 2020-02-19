@@ -130,11 +130,6 @@ createBeacon(name, emne, img, cafe) {
         sheet = ""+canvas.toDataURL('image/webp')+""
   };
   
-
-  
-
-
-  
   
 let _beaconService = new beaconsService();
 

@@ -107,8 +107,7 @@ select {
 }
 
 #mapoverlay {
-  display: none;
-  background: black;
+ pointer-events: none;
   position: absolute;
   opacity: 0;
   z-index: 1;
@@ -121,6 +120,7 @@ select {
   height: 100%;
   width: 100%;
 }
+
 
 #opslagmenuwrap {
   height: 100%;
