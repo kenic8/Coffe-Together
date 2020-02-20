@@ -151,18 +151,10 @@ olay.addEventListener("click", randofunction);
 
 function transformstuff(savedId) {
   // container stuff
-<<<<<<< HEAD
+  olay.style.opacity = "0.6";
   olay.style.pointerEvents = "initial";
   document.getElementById("mapwrap").style.height = "40%";
   document.getElementById("forsideIndholdWrap").style.overflowY = "initial";
-=======
-  olay.style.opacity = "0.6"
-  olay.style.pointerEvents = "initial"
-  document.getElementById("mapwrap").style.height = "40%"
-  document.getElementById("forsideIndholdWrap").style.overflowY = "initial"
-
-
->>>>>>> master
 
   // map stuff
   map.setZoom(16);
@@ -181,16 +173,10 @@ function randofunction() {
     allMarkers[q].setOpacity(1);
     new someClass(koordinaterPos, allMarkers);
   }
-<<<<<<< HEAD
+  olay.style.opacity = "0";
   olay.style.pointerEvents = "none";
   document.getElementById("mapwrap").style.height = "100%";
   document.getElementById("forsideIndholdWrap").style.overflowY = "hidden";
-=======
-    olay.style.opacity = "0"
-    olay.style.pointerEvents = "none"
-    document.getElementById("mapwrap").style.height = "100%"
-    document.getElementById("forsideIndholdWrap").style.overflowY = "hidden"
->>>>>>> master
 
   // map stuff
   map.setZoom(15);
