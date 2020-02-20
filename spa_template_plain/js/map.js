@@ -1,191 +1,208 @@
 "use strict";
-import { firebaseDB } from "./firebase.js";
-import { beaconsService } from "./beaconService.js";
+import {firebaseDB} from "./firebase.js";
+import {beaconsService} from "./beaconService.js";
+
+let olay = document.getElementById("mapoverlay");
 var activemarkers;
 
-class someClass {
 
-constructor(tester, markers) {
-  this.opslag = firebaseDB.collection("opslag")
-  this.read(tester, markers);
-}
-
-read(tester, markers) {
-// ========== READ ==========
-// watch the database ref for changes
-this.opslag.onSnapshot(snapshotData => {
-  let beacon = [];
-  snapshotData.forEach(doc => {
-    const beacons = doc.data();
-    beacons.id = doc.id;
-    beacon.push(beacons);
-  });
-  this.appendBeacon(beacon, tester, markers);
-});
-}
-
-appendBeacon(beacons, tester, markers) {
-  var testarrey = []
-  for (var i = 0; i < beacons.length; i++) {
-    testarrey.push(beacons[i].cafe)
-  }
-  this.compressArray(testarrey, tester, markers);
+// MARKER ACTIVE OPSLAGS TÆLLER ////////////////////////////
+// class med opslag fra database
+class modifyMarksers {
+  constructor(cafeer, markers) {
+    this.opslag = firebaseDB.collection("opslag")
+    this.read(cafeer, markers);
   }
 
-  compressArray(testarrey, tester, markers) {
- 
+  // updating
+  read(cafeer, markers) {
+    this.opslag.onSnapshot(snapshotData => {
+      let opslag = [];
+      snapshotData.forEach(doc => {
+        const opslagS = doc.data();
+        opslagS.id = doc.id;
+        opslag.push(opslagS);
+      });
+      this.appendBeacon(opslag, cafeer, markers);
+    });
+  }
+
+  // lav array af active opslags cafe navne
+  appendBeacon(opslag, cafeer, markers) {
+    var opslagarray = []
+    for (var i = 0; i < opslag.length; i++) {
+      opslagarray.push(opslag[i].cafe)
+    }
+    this.compressArray(opslagarray, cafeer, markers);
+  }
+
+  // compress arrayet til kun at indholde en version af navnet -> og tæl gentagende navne
+  compressArray(opslagarray, cafeer, markers) {
     var compressed = [];
     // make a copy of the input array
-    var copy = testarrey.slice(0);
-   
+    var copy = opslagarray.slice(0);
+
     // first loop goes over every element
-    for (var i = 0; i < testarrey.length; i++) {
-   
-      var myCount = 0;	
+    for (var i = 0; i < opslagarray.length; i++) {
+
+      var myCount = 0;
       // loop over every element in the copy and see if it's the same
       for (var w = 0; w < copy.length; w++) {
-        if (testarrey[i] == copy[w]) {
+        if (opslagarray[i] == copy[w]) {
           // increase amount of times duplicate is found
           myCount++;
           // sets item to undefined
           delete copy[w];
         }
       }
-   
+
+      // nyt object/array med cafe navn og antal gentagelse af cafe navnet
       if (myCount > 0) {
         var a = new Object();
-        a.value = testarrey[i];
+        a.value = opslagarray[i];
         a.count = myCount;
         compressed.push(a);
       }
     }
 
-    var testerSimple = []
-      for(var i=0; i<tester.length; i++) {
-        testerSimple.push(tester[i].cafe)
-          for(var u=0; u<compressed.length; u++) {
-          if (testerSimple[i] == compressed[u].value) {
-            activemarkers = testerSimple.indexOf(testerSimple[i])
-            markers[activemarkers].setLabel( { color: 'black', fontWeight: 'bold', fontSize: '20px', text: ''+compressed[u].count+'' });
-     
-          } else {
-            markers[i].setOpacity(0.6)
-          }
+    // MODIFY MARKERS
+    var cafeArray = []
+    for (var i = 0; i < cafeer.length; i++) {
+      // sæt alle markers gennemsigtige
+      markers[i].setOpacity(0.6)
+      // opstil nyt array kun med cafe navne
+      cafeArray.push(cafeer[i].cafe)
+      // for alle cafeer med mindst 1 activt opslag {
+      for (var u = 0; u < compressed.length; u++) {
+        // sammenligner alle cafeer med cafeer med active opslag {
+        if (cafeArray[i] == compressed[u].value) {
+          // find (array indexet) af cafeer med active opslag ud fra alle cafeer
+          activemarkers = cafeArray.indexOf(cafeArray[i])
+          // Modificer markers med active opslag
+          markers[activemarkers].setLabel({
+            color: 'black',
+            fontWeight: 'bold',
+            fontSize: '20px',
+            text: '' + compressed[u].count + ''
+          });
+          markers[activemarkers].setOpacity(1)
         }
-  }
-    // console.log(compressed.length)
-     
-    return compressed;
+      }
+    }
   };
-  
 }
 
+// MAP STUFF ////////////////////////////
+let map;
+let Mapstyling = [];
+// importer map styling fra map.json {
+fetch("json/mapstyling.json")
+  .then(Response => {
+    return Response.json();
+  })
+  .then(function (json) {
+    Mapstyling = json;
 
-
-  let map;
-  
-
-  let Mapstyling = [];
-  fetch("json/mapstyling.json")
-    .then(Response => {
-      return Response.json();
-    })
-    .then(function(json) {
-      Mapstyling = json;
-
-  // opset map properties med styling fra map.json "Mapstyling = map.json"
-  map = new google.maps.Map(document.getElementById("map"), {
-    center: { lat: 56.162939, lng: 10.203921 },
-    zoom: 15,
-    disableDefaultUI: true,
-    styles: Mapstyling,
-  });
-});
-
-
-
-var allMarkers = [];
-
-  // Hent koordinater fra beaconpos.json
-  let koordinaterPos = [];
-  fetch("json/beaconspos.json")
-    .then(Response => {
-      return Response.json();
-    })
-    .then(function(json) {
-      koordinaterPos = json;
-
-  // placer makers fra json koordinater med Id relativt til array nr
-  
-  let marker, i, savedId;
-  for (i = 0; i < koordinaterPos.length; i++) {
-    let image = "coffe.png";
-    marker = new google.maps.Marker({
-      position: new google.maps.LatLng(koordinaterPos[i].coord[0], koordinaterPos[i].coord[1]),
-      map: map,
-      icon: { 
-        url: "coffe.png",
-        labelOrigin: new google.maps.Point(40, 0)
-      }
+    // opset map properties med styling fra map.json "Mapstyling = map.json"
+    map = new google.maps.Map(document.getElementById("map"), {
+      center: {
+        lat: 56.162939,
+        lng: 10.203921
+      },
+      zoom: 15,
+      disableDefaultUI: true,
+      styles: Mapstyling,
     });
-
-
-    allMarkers.push(marker);
-    marker.set("id", i);
+  });
 
 
 
-   
-    // klik på markers og find hvilken 
-    marker.addListener("click", function() {
-      for(var q=0; q < allMarkers.length; q++){
-        allMarkers[q].setOpacity(0);
-        allMarkers[this.id].setOpacity(1);
+// MARKERS ////////////////////////////
+var allMarkers = [];
+// Hent koordinater fra beaconpos.json -- skal nok laves om til at hentes fra databasen.
+let koordinaterPos = [];
+fetch("json/beaconspos.json")
+  .then(Response => {
+    return Response.json();
+  })
+  .then(function (json) {
+    koordinaterPos = json;
 
-    }
-      savedId = this.id;
-      transformstuff(savedId);
-      new beaconsService(""+koordinaterPos[this.id].cafe+"");
+    // placer makers fra json koordinater;
+    let marker, i, savedId;
+    for (i = 0; i < koordinaterPos.length; i++) {
+      marker = new google.maps.Marker({
+        position: new google.maps.LatLng(koordinaterPos[i].coord[0], koordinaterPos[i].coord[1]),
+        map: map,
+        icon: {
+          url: "coffe.png",
+          labelOrigin: new google.maps.Point(40, 0)
+        }
+      });
+
+      // array med alle markers
+      allMarkers.push(marker);
+      // giv hver marker et id lig deres array position
+      marker.set("id", i);
+
+
+      // klik på markers og find hvilken 
+      marker.addListener("click", function () {
+        for (var q = 0; q < allMarkers.length; q++) {
+          // alle markers usynlig
+          allMarkers[q].setOpacity(0);
+          // klikket marker 100% tydelig
+          allMarkers[this.id].setOpacity(1);
+        }
+        // gem kliket markers id til class function
+        savedId = this.id;
+        // hent opslag med class fra beaconService.js
+        new beaconsService("" + koordinaterPos[this.id].cafe + "");
+
+        transformstuff(savedId);
       });
     }
-    new someClass(koordinaterPos, allMarkers);
-});
+    // refere til marker active opslag tæller
+    new modifyMarksers(koordinaterPos, allMarkers);
+  });
 
 
-let olay = document.getElementById("mapoverlay");
-olay.addEventListener("click", randofunction);
-
-// MAKE SHIT HAPPEND ON CLICK
-
+// TRANSFORMATION ON KLIK ////////////////////////////
 function transformstuff(savedId) {
 
-  // container stuff
-  olay.style.opacity = "0.6"
-  olay.style.pointerEvents = "initial"
+  // element style transform
   document.getElementById("mapwrap").style.height = "40%"
   document.getElementById("forsideIndholdWrap").style.overflowY = "initial"
 
+  // overlay properties
+  olay.style.opacity = "0.6"
+  olay.style.pointerEvents = "initial"
 
-
-  // map stuff
+  // ryk map position til klikket marker
   map.setZoom(16);
-  map.panTo({ lat: koordinaterPos[savedId].coord[0], lng: koordinaterPos[savedId].coord[1]});
+  map.panTo({
+    lat: koordinaterPos[savedId].coord[0],
+    lng: koordinaterPos[savedId].coord[1]
+  });
 }
 
-// MAKE SHIT RESET ON CLICK
 
-function randofunction() {
-    // container stuff
+// RESET TRANSFORMATION ON KLIK ////////////////////////////
+olay.addEventListener("click", resetMap);
 
-    for(var q=0; q < allMarkers.length; q++){
-      allMarkers[q].setOpacity(1);
-      new someClass(koordinaterPos, allMarkers);
-  }
-    olay.style.opacity = "0"
-    olay.style.pointerEvents = "none"
-    document.getElementById("mapwrap").style.height = "100%"
-    document.getElementById("forsideIndholdWrap").style.overflowY = "hidden"
+function resetMap() {
 
-    // map stuff
-    map.setZoom(15);
+  // Reset marker properties
+  new modifyMarksers(koordinaterPos, allMarkers);
+
+  // element style transform reset
+  document.getElementById("mapwrap").style.height = "100%"
+  document.getElementById("forsideIndholdWrap").style.overflowY = "hidden"
+
+  // overlay properties reset
+  olay.style.opacity = "0"
+  olay.style.pointerEvents = "none"
+
+  // reset map position til klikket marker
+  map.setZoom(15);
 }
