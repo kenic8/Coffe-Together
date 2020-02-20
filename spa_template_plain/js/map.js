@@ -160,6 +160,7 @@ olay.addEventListener("click", randofunction);
 function transformstuff(savedId) {
 
   // container stuff
+  olay.style.opacity = "0.6"
   olay.style.pointerEvents = "initial"
   document.getElementById("mapwrap").style.height = "40%"
   document.getElementById("forsideIndholdWrap").style.overflowY = "initial"
@@ -180,6 +181,7 @@ function randofunction() {
       allMarkers[q].setOpacity(1);
       new someClass(koordinaterPos, allMarkers);
   }
+    olay.style.opacity = "0"
     olay.style.pointerEvents = "none"
     document.getElementById("mapwrap").style.height = "100%"
     document.getElementById("forsideIndholdWrap").style.overflowY = "hidden"
