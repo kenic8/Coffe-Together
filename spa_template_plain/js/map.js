@@ -1,6 +1,7 @@
 "use strict";
 import { firebaseDB } from "./firebase.js";
 import { beaconsService } from "./beaconService.js";
+var activemarkers;
 
 class someClass {
 
@@ -64,9 +65,11 @@ appendBeacon(beacons, tester, markers) {
         testerSimple.push(tester[i].cafe)
           for(var u=0; u<compressed.length; u++) {
           if (testerSimple[i] == compressed[u].value) {
-            var a = testerSimple.indexOf(testerSimple[i])
-            markers[a].setLabel( { color: 'black', fontWeight: 'bold', fontSize: '20px', text: ''+compressed[u].count+'' });
+            activemarkers = testerSimple.indexOf(testerSimple[i])
+            markers[activemarkers].setLabel( { color: 'black', fontWeight: 'bold', fontSize: '20px', text: ''+compressed[u].count+'' });
      
+          } else {
+            markers[i].setOpacity(0.6)
           }
         }
   }
@@ -175,6 +178,7 @@ function randofunction() {
 
     for(var q=0; q < allMarkers.length; q++){
       allMarkers[q].setOpacity(1);
+      new someClass(koordinaterPos, allMarkers);
   }
     olay.style.pointerEvents = "none"
     document.getElementById("mapwrap").style.height = "100%"
