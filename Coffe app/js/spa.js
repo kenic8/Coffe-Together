@@ -64,20 +64,16 @@ fetch("json/beaconspos.json")
   .then(Response => {
     return Response.json();
   })
-  .then(function(json) {
+  .then(function (json) {
     cafeer = json;
-let htmlTemplate ="";
+    let htmlTemplate = "";
     for (let navn of cafeer) {
-     
-       htmlTemplate += `
+
+      htmlTemplate += `
             <option value= "${navn.cafe}">${navn.cafe}</option>
           `
-          document.querySelector("#dropdowncafe").innerHTML = htmlTemplate;
-        
+      document.querySelector("#dropdowncafe").innerHTML = htmlTemplate;
+
     }
-  
+
   });
-
-
-  
-

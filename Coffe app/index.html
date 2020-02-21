@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>SPA Template Plain</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="Get started with HTML, CSS and JavaScript" />
+  <meta name="author" content="Jesson - Carl- Viggo" />
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+
+<body onhashchange="pageChange()">
+  <!-- tabbar navigation -->
+  <nav class="tabbar">
+    <a href="#home">map</a>
+    <a href="#side2">Chat</a>
+    <a href="#create">Create</a>
+    <a href="#opslag">Opslag</a>
+  </nav>
+
+  <!-- pages -->
+
+  <!-- home page -->
+  <section id="home" class="page">
+    <!-- body content -->
+
+    <div id="opslagklikwrapwrap"></div>
+
+    
+    <div id="forsideIndholdWrap">
+      <div id="mapwrap">
+        <div id="mapoverlay"></div>
+        <div id="map"></div>
+      </div>
+      <div id="opslagmenuwrap">
+        <div id="imgwrap">
+        </div>
+        <div id="opslagwrapwrap">
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Chat page -->
+  <section id="side2" class="page">
+    <header class="topbar">
+      <h2>Opslag</h2>
+      <input
+        id="inputvalue"
+        type="text"
+        name="searchGroup"
+        placeholder="søg"
+        required
+      />
+      <div id="alleopslag"></div>
+    </header>
+  </section>
+
+  <!-- create page -->
+  <section id="create" class="page">
+    <header class="topbar">
+      <h2>Create beacon</h2>
+    </header>
+    <div id="user-container" class="grid-container"></div>
+    <form>
+      <select id="dropdowncafe" name="kaffe steder">
+      </select>
+      <input type="text" id="name" placeholder="Name" required />
+      <input type="text" id="emne" placeholder="Emne" required />
+      <!-- <input
+          type="file"
+          id="img"
+          accept="image/*"
+        />
+        <img id="imagePreview" class="image-preview" /> -->
+      <a href="#home">
+        <button type="button" name="button" onclick="createBeacon()">
+          GO!
+        </button>
+      </a>
+
+    </form>
+    <div id="imagePreview" class="image-preview">
+      <div></div>
+      <div id="takepicbut"></div>
+  </section>
+
+  <!-- Opslag page -->
+  <section id="opslag" class="page">
+    <video autoplay></video>
+    <div id="takepicbut" onclick="takepic()"></div>
+    <canvas style="display:none;"></canvas>
+  </section>
+
+  <script>
+
+  </script>
+
+
+
+  <!-- scipts  -->
+  <script src="js/spa.js"></script>
+  <script type="module" src="js/map.js"></script>
+  <script type="module" src="js/beaconService.js"></script>
+  <script type="module" src="js/filter.js"></script>
+
+  <!-- Mao API -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDV4i1136Altv5jZLueDEt5gMTHO5dyU6o" async defer>
+  </script>
+
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.8.2/firebase-app.js"></script>
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+  <script src="https://www.gstatic.com/firebasejs/7.8.2/firebase-analytics.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-firestore.js"></script>
+</body>
+
+</html>
