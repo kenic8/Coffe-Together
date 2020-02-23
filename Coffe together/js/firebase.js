@@ -11,6 +11,8 @@ var firebaseConfig = {
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-firebase.analytics();
+
+// export const firebaseTest = firebase;
+
 
 export const firebaseDB = firebase.firestore();
