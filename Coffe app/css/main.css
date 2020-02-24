@@ -186,13 +186,73 @@ a[href^="https://maps.google.com/maps"]{display:none !important}
 }
 
 
+input {
+  margin: 0 !important;
+}
 
 
 /* vid */
-video {
+#camerawrap {
+  position: absolute;
   height: 100vh;
-  width: 100vw;
 }
+
+#darkbg{
+  height: 100%;
+  width: 100vw;
+  background: black;
+  opacity: 0.9;
+  position: absolute;
+  top: 0;
+}
+
+video {
+  top: 0;
+  position: relative;
+  z-index: 99999999999999;
+  height: auto;
+  width: 100vw;
+  transform: scaleX(-1);
+}
+
+#butwrapcamera {
+  position: absolute;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100vw;
+  justify-content: center;
+  color: white;
+}
+
+#butwrapcamera div{
+  margin: 5%;
+}
+
+/* <div id="stopcaneraknap"></div>
+<div id="tagbilledeknap"></div>
+<div id="accepterbilledeknap"></div> */
+
+#stopcaneraknap {
+  z-index: 9999999;
+  width: 40%;
+  height: 50px;
+  background: red;
+}
+
+#tagbilledeknap {
+  z-index: 9999999;
+  width: 40%;
+  height: 50px;
+  background: green;
+}
+
+#accepterbilledeknap {
+  z-index: 9999999;
+  width: 90%;
+  height: 50px;
+  background: blue;
+}
+
 
 #takepicbut {
   height: 90px;
@@ -206,11 +266,16 @@ video {
 }
 
 #imagePreview {
-  height: 500px;
-  width: 500px;
+  height: 30vw;
+  width: 90vw;
   background-color: blue;
 }
 
+#profileimagePreview {
+  height: 30vw;
+  width: 90vw;
+  background-color: blue;
+}
 
 /* #home {
 position: relative;
@@ -277,6 +342,7 @@ margin: 0;
   transform: translate(-50%, -50%);
   top: 55%;
   left: 50%;
+  background-size: contain;
 }
 
 #Obutwrap {
@@ -304,6 +370,7 @@ margin: 0;
   width: 30vw;
   background: rgb(0, 166, 255);
   border-radius: 50%;
+  background-size: contain;
 }
 
 #OPInf {
@@ -340,4 +407,93 @@ justify-content: space-between;
   width: 50%;
   height: 100%;
   background: red;
+}
+
+/* input form stryling */
+form {
+  margin-left: 5%;
+  margin-right: 5%;
+  background-color: var(--light-green);
+  border-radius: 10%;
+}
+
+form button {
+  font-weight: 200;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+  padding: 12px 15px;
+  font-size: 1em;
+  border-radius: 20px;
+  color: #ffffff !important;
+  background-color: rgb(38, 76, 89);
+  width: 100%;
+  max-width: 350px;
+}
+
+input,
+select {
+  -webkit-appearance: none;
+  margin: 1em auto;
+  width: 100%;
+  max-width: 350px;
+  padding: 15px 15px;
+  box-sizing: border-box;
+  display: block;
+  background: #fff;
+  border: 0;
+  border-radius: 0;
+}
+
+.firebaseui-container {
+  font-family: 'Raleway', sans-serif;
+}
+
+#firebaseui-auth-container {
+  margin-top: 10%;
+}
+
+.mdl-button--raised.mdl-button--colored {
+background: var(--dark-brown);
+width: 10%;
+}
+
+.mdl-textfield__label:after {
+  background-color: var(--dark-brown);
+}
+
+.firebaseui-textfield.mdl-textfield .firebaseui-label::after {
+  background-color: var(--dark-brown);
+}
+
+.mdl-textfield__input { 
+background-color: var(--light-green);
+font-family: 'Raleway', sans-serif;
+}
+
+.mdl-button {
+  font-family: 'Raleway', sans-serif;
+}
+
+.firebaseui-form-actions {
+text-align: center;
+}
+
+.firebaseui-link {
+color: black;
+}
+
+#butbubtu {
+  height: 100px;
+  z-index: 999999999999999999999999999999;
+  width: 922px;
+  position: absolute;
+  background: red;
+}
+
+#opretBruger {
+  height: 100vh;
+  width: 100vw;
+  background-color: lawngreen;
+  display: none;
 }

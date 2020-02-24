@@ -1,5 +1,6 @@
 import { firebaseDB } from "./firebase.js";
 
+
 document.getElementById("inputvalue").addEventListener("keyup", function() {
   /// kadler vores script ved keyup
   new filterService();
@@ -12,7 +13,6 @@ export class filterService {
   }
 
   readfilters() {
-    //
     // watch the database ref for changes snapshot til at henter opslag fra vores firebeacon
     this.opslag.onSnapshot(snapshotData => {
       let beacon = [];
@@ -28,6 +28,7 @@ export class filterService {
   }
 
   filterBeacon(beacons) {
+    console.log(beacon)
     /// få values fra input field
     let searchInput = document.querySelector("#inputvalue").value;
     /// tom array til push af filtreret

@@ -1,5 +1,4 @@
 "use strict";
-import {firebaseDB} from "./firebase.js";
 import {beaconsService} from "./beaconService.js";
 import {modifyMarksers} from "./modifyMarksers.js";
 import { filterService } from "./filter.js";

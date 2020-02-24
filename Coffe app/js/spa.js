@@ -1,5 +1,3 @@
-"use strict";
-
 // hide all pages
 function hideAllPages() {
   let pages = document.querySelectorAll(".page");
@@ -28,9 +26,9 @@ function setActiveTab(pageId) {
 }
 
 // navigate to a new view/page by changing href
-function navigateTo(pageId) {
-  location.href = `#${pageId}`;
-}
+// function navigateTo(pageId) {
+//   location.href = `#${pageId}`;
+// }
 
 // set default page or given page by the hash url
 // function is called 'onhashchange'
@@ -43,17 +41,6 @@ function pageChange() {
 }
 
 pageChange(); // called by default when the app is loaded for the first time
-
-// to shoe and hide the loader
-function showLoader(show) {
-  let loader = document.getElementById("loader");
-  if (show) {
-    loader.classList.remove("hide");
-  } else {
-    loader.classList.add("hide");
-  }
-}
-
 
 
 /////////// til at render create options så vi kan få value til passe til value fra json i vores ifstatemant i beaconservice

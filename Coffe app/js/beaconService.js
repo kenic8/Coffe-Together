@@ -1,6 +1,6 @@
 import {firebaseDB} from "./firebase.js";
+import {docRef} from "./loginService.js";
 // let _selectedImgFile = "";
-
 
 // vars til opslag knapper på map
 let specificopslagdivs = []
@@ -42,14 +42,14 @@ export class beaconsService {
         if (opslag.cafe == value1) {
           htmlTemplate += `
         <div class="opslagwrap">
-        <div id="profilimg" style="background-image: url('${opslag.img}')"></div>
+        <div id="profilimg" style="background-image: url('${opslag.profilimg}')"></div>
         <div id="tekstogshit">
-        <h2>${opslag.name}</h2>
+        <h2>${opslag.name}    ${opslag.alder}</h2>
         <p>${opslag.emne}</p>
         </div>
         <div id="infoogshit">
         <p>p 2</p>
-        <p>2t 22m</p>
+        <p>tid</p>
         </div>
         </div>
         `;
@@ -96,7 +96,7 @@ function klikbareOpslag() {
       <div id="userwrapstuff">
       <div id="resetknap"></div>
         <div id="Oimgwrap">
-          <div id="placeimg" style="background-image: url('${specificopslagdivs[this.id].profilimg}')"></div>
+          <div id="placeimg" style="background-image: url('${specificopslagdivs[this.id].img}')"></div>
         </div>
         <div id="Obutwrap">
           <div id="Jbutton"></div>
@@ -105,7 +105,7 @@ function klikbareOpslag() {
             <div id="OPImg" style="background-image: url('${specificopslagdivs[this.id].profilimg}')"></div>
             <div id="OPInf">
               <div id="OPInftekstwrap">
-                <h2>${specificopslagdivs[this.id].name}</h2>
+                <h2>${specificopslagdivs[this.id].name}    ${specificopslagdivs[this.id].alder}</h2>
                 <p>${specificopslagdivs[this.id].emne}</p>
               </div>
               <div id="OPInfpropertywrap">
@@ -130,67 +130,147 @@ function klikbareOpslag() {
   }
 }
 
-let sheet;
 
 // CAMERA SKAL RYKKES
-const video = document.querySelector('video');
+// let video = document.querySelector('video');
+// const canvas = document.querySelector('canvas');
+// const takepicbut = document.querySelector('#takepicbut');
+// let imagePreview = document.querySelector('#imagePreview');
+
+// takepicbut.addEventListener("click", hello);
+
+// let constraints = {
+//   video: true
+// };
+
+// navigator.mediaDevices.getUserMedia(constraints).
+// then((stream) => {
+//   video.srcObject = stream
+// });
+
+// function hello() {
+//   canvas.width = video.videoWidth;
+//   canvas.height = video.videoHeight;
+//   canvas.getContext('2d').drawImage(video, 0, 0);
+//   imagePreview.style.background = "url(" + canvas.toDataURL('image/webp') + ")";
+//   sheet = "" + canvas.toDataURL('image/webp') + ""
+// };
+
+
+
+
+
+
 const canvas = document.querySelector('canvas');
-const takepicbut = document.querySelector('#takepicbut');
 let imagePreview = document.querySelector('#imagePreview');
 
-takepicbut.addEventListener("click", hello);
+let profileimagePreview = document.querySelector('#profileimagePreview');
 
-const constraints = {
+let sheet;
+function profileimagePreviewFunk(dispic) {
+  profileimagePreview.style.background = "url("+dispic+")"
+  sheet = dispic;
+}
+
+
+// CAMERA
+let htmlTemplate3 = '';
+window.tagbillede = () => {
+  htmlTemplate3 += `
+  <section id="camerawrap">
+  <video autoplay></video>
+  <div id="butwrapcamera">
+    <div id="stopcaneraknap">Luk</div>
+    <div id="tagbilledeknap">tag billede</div>
+    <div id="accepterbilledeknap">accepter billede</div>
+  </div>
+  <div id="darkbg"></div>
+</section>
+  `;
+  document.getElementById("camereholderDiv").innerHTML = htmlTemplate3;
+
+
+  let video = document.querySelector('video');
+  var stopcaneraknap = document.getElementById("stopcaneraknap")
+  var tagbiledknap = document.getElementById("tagbilledeknap")
+  var accepterbilledeknap = document.getElementById("accepterbilledeknap")
+  stopcaneraknap.addEventListener("click", lukcamera);
+  tagbiledknap.addEventListener("click", tagbillede);
+  accepterbilledeknap.addEventListener("click", acceptbillede);
+
+let constraints = {
   video: true
 };
 
-
+// let stream
+// let tracks
+let awasawa;
 navigator.mediaDevices.getUserMedia(constraints).
 then((stream) => {
-  video.srcObject = stream
-});
+  awasawa = stream
+  video.srcObject = awasawa
 
-function hello() {
+})
+
+function lukcamera() {
+  htmlTemplate3 = '';
+  document.getElementById("camereholderDiv").innerHTML = htmlTemplate3;
+  awasawa.getTracks().forEach(function(track) {
+    track.stop();
+  });
+}
+
+var takepicmode 
+function tagbillede() {
+  console.log()
+  if (takepicmode != 1) {
+  video.pause();
   canvas.width = video.videoWidth;
   canvas.height = video.videoHeight;
   canvas.getContext('2d').drawImage(video, 0, 0);
   imagePreview.style.background = "url(" + canvas.toDataURL('image/webp') + ")";
-  sheet = "" + canvas.toDataURL('image/webp') + ""
+  // 
+  tagbiledknap.innerHTML = "nyt bilede?"
+  tagbiledknap.style.background = "brown"
+    // 
+    takepicmode = 1;
+  } else {
+    video.play();
+    tagbiledknap.innerHTML = "tag billede"
+    tagbiledknap.style.background = "green"
+    takepicmode = 2;
+  }
+
+};
+
+function acceptbillede() {
+  htmlTemplate3 = '';
+  document.getElementById("camereholderDiv").innerHTML = htmlTemplate3;
+  profileimagePreviewFunk(canvas.toDataURL('image/webp'));
+  awasawa.getTracks().forEach(function(track) {
+    track.stop();
+  });
+}
 };
 
 
 
 // ========== CREATE ==========
-//add a new user to firestore (database)
+
 window.createBeacon = () => {
+  docRef.get().then(function(doc) {
   let _beaconService = new beaconsService();
   let cafeInput = document.querySelector("#dropdowncafe")
-  let nameInput = document.querySelector("#name");
+  let name = doc.data().navn;
+  let alder = doc.data().alder;
+  let profilimg = doc.data().profilimg;
   let emneInput = document.querySelector("#emne");
-  let imageInput = document.querySelector("#imagePreview");
-  let dwawadw = "hejhej"
-  // console.log(nameInput.value);
-  // console.log(emneInput.value);
-  // console.log(imageInput.src);
-
-  //tager value fra input felter i html også dropdown
-  _beaconService.createBeacon(cafeInput.value, sheet, nameInput.value, "alder", emneInput.value, sheet, "personer", "tid");
+  _beaconService.createBeacon(cafeInput.value, profilimg, name, alder, emneInput.value, sheet, "personer", "tid");
+}).catch(function(error) {
+  console.log("Error getting document:", error);
+});
 };
 
 
 
 
-
-// // /image--------------------------------------
-// window.previewImage = (previewId) => {
-//   if (file) {
-//     _selectedImgFile = file;
-//     let reader = new FileReader();
-//     reader.onload = event => {
-//       document
-//         .querySelector("#" + previewId)
-//         .setAttribute("src", event.target.result);
-//     };
-//     reader.readAsDataURL(file);
-//   }
-// };
