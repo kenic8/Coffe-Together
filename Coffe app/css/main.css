@@ -1,45 +1,109 @@
+/* ---------- root variables ---------- */
+:root {
+  --dark-brown: #5E4747;
+    --beige: #E7E2DD;
+    --light-grey: #F8F8F8;
+  }
+
 html {
-  font-family: Helvetica, Arial, sans-serif;
-  font-weight: 200;
+  font-family: 'Raleway', sans-serif;
+  height: 100%;
+  text-align: center;
+  width: 100%;
+  font-weight: 400;
 }
 
 body {
   margin: 0;
   overflow-x: hidden;
+  font-family: 'Raleway', sans-serif;
 }
 
+/*-------- text styling ------*/
 h1 {
-
+  font-family: 'Raleway', sans-serif;
+  font-size: 2em;
+  font-weight: 300;
+  letter-spacing: 3px;
+  text-transform: uppercase;
 }
 
 h3 {
+  font-weight: 400;
+  letter-spacing: 2px;
+}
 
+h2 {
+  font-weight: 300;
+  letter-spacing: 2px;
+}
+
+p {
+  font-weight: 200;
+}
+
+#logo {
+  margin-top: 30%;
+  font-family: 'Galada', cursive;
+  font-size: 3em;
+text-transform: none;
+color: var(--dark-brown);
 }
 
 /* ---------- tabbar styling ---------- */
 .tabbar {
   position: fixed;
   bottom: 0;
-  z-index: 9999;
+  left: 0;
+  right: 0;
+  border-top: 1px solid;
+  z-index: 999999999999999;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
 }
 
 /* Style the links inside the navigation bar */
 .tabbar a {
   display: inline-block;
-  color: var(--text-color-light);
   text-align: center;
-  padding: 20px 16px;
   text-decoration: none;
-  font-size: 0.8em;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  font-size: 1em;
+  width: 20%;
+  color: black;
+  padding-top: 1%;
+}
+
+/* Change the color of links on hover */
+.tabbar a:hover {
+cursor: pointer;
 }
 
 /* Add a color to the active/current link */
 .tabbar a.active {
-  background-color: blue;
-  color: white;
+background-color: var(--beige);
 }
+
+.map-icon img{
+  width: 60%;
+ }
+ 
+ .chat-icon img {
+   width: 55%;
+ }
+ 
+ .opslag-icon img {
+ width: 55%;
+ }
+ 
+ .profil-icon img {
+   width: 55%;
+ }
+ 
+ #dropdowncafe {
+   border-radius: 0;
+   border: 1px solid;
+ }
 
 /* ---------- page styling ---------- */
 .page {
@@ -64,7 +128,7 @@ h3 {
   transition: visibility 0s 0.4s, opacity 0.4s linear;
 }
 
-
+/*---------- form styling --------*/
 form button {
   font-weight: 200;
   text-align: center;
@@ -72,11 +136,13 @@ form button {
   border: none;
   padding: 12px 15px;
   font-size: 1em;
-  border-radius: 0;
+  border-radius: 15px;
   color: #ffffff !important;
-  background-color: rgb(38, 76, 89);
-  width: 100%;
+  background-color: var(--dark-brown);
+  width: 40%;
   max-width: 350px;
+  margin-bottom: 2%;
+  margin-top: 2%;
 }
 
 input,
@@ -88,9 +154,8 @@ select {
   padding: 15px 15px;
   box-sizing: border-box;
   display: block;
-  background: #fff;
-  border: 0;
-  border-radius: 0;
+  background: var(--light-grey);
+  border: 1px solid;
 }
 
 /* styling til beacons slettes senere!*/
@@ -118,12 +183,10 @@ select {
 background: radial-gradient(circle, rgba(63,94,251,0) 0%, rgba(0,0,0,1) 100%);
 }
 
-
 #map {
   height: 100%;
   width: 100%;
 }
-
 
 #opslagmenuwrap {
   height: 100%;
@@ -137,18 +200,23 @@ background: radial-gradient(circle, rgba(63,94,251,0) 0%, rgba(0,0,0,1) 100%);
   background: green;
 }
 
-
 #alleopslag {
   height: max-content;
   background: red;
 }
 
+#emne {
+  border: 1px solid;
+  margin-bottom: 2%;
+}
 
 /* OPSLAGSTING */
 .opslagwrap {
   height: 75px;
   display: flex;
   width: 100vw;
+  border-bottom: 1px solid;
+  margin-top: 2%;
 }
 
 .opslagwrap h2, .opslagwrap p{
@@ -156,17 +224,19 @@ background: radial-gradient(circle, rgba(63,94,251,0) 0%, rgba(0,0,0,1) 100%);
 }
 
 #profilimg {
-  width: 75px;
-  height: 100%;
+  width: 60px;
+  height: 60px;
   background: blueviolet;
   border-radius: 50%;
-  background-size: contain;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-left: 5%;
 }
 
 #infoogshit {
   width: 75px;
   height: 100%;
-  background: rgb(0, 166, 255);
 }
 
 #tekstogshit {
@@ -185,11 +255,9 @@ a[href^="https://maps.google.com/maps"]{display:none !important}
     background:none !important;
 }
 
-
 input {
   margin: 0 !important;
 }
-
 
 /* vid */
 #camerawrap {
@@ -235,26 +303,31 @@ video {
 #stopcaneraknap {
   z-index: 9999999;
   width: 40%;
-  height: 50px;
-  background: red;
+  height: 30px;
+  background: var(--dark-brown);
+  border-radius: 15px;
+  font-weight: 200;
 }
 
 #tagbilledeknap {
   z-index: 9999999;
   width: 40%;
-  height: 50px;
-  background: green;
+  height: 30px;
+  background: var(--dark-brown);
+  border-radius: 15px;
+  font-weight: 200;
 }
 
 #accepterbilledeknap {
   z-index: 9999999;
-  width: 90%;
-  height: 50px;
-  background: blue;
+  width: 60%;
+  height: 30px;
+  background: var(--dark-brown);
+  border-radius: 15px;
+  font-weight: 200;
 }
 
-
-#takepicbut {
+/*#takepicbut {
   height: 90px;
   width: 90px;
   background-color: red;
@@ -263,7 +336,7 @@ video {
   top: 80%;
   left: 50%;
   border-radius: 50%;
-}
+}*/
 
 #imagePreview {
   height: 30vw;
@@ -275,17 +348,10 @@ video {
   height: 30vw;
   width: 90vw;
   background-color: blue;
+  margin-top: 5%;
 }
 
-/* #home {
-position: relative;
-} */
-
-
-
-
 /* OLAY NÅR MAN TRYKKER PÅ OPSLAG */
-
 #opslagklikwrapwrap {
   z-index: 99999999999999999;
   position: absolute;
@@ -296,23 +362,49 @@ position: relative;
   z-index: 99999999;
   height: 100vh;
   width: 100vw;
-  background: black;
+  background: rgba(0, 0, 0, 0.5);
   opacity: 1;
+  font-size: 0.9em;
 }
 
 #resetknap {
   height: 60px;
   width: 60px;
-  background: rgb(106, 255, 0);
+  background-image: url(../images/cancel.png);
+  background-size: 30%;
+  background-position: center;
+  background-repeat: no-repeat;
   position: absolute;
   transform: translate(-50%, -50%);
-  left: 95%;
-  top: 5%;
+  left: 93%;
+  top: 3.5%;
   z-index: 99999999;
+}
+
+#personer {
+  width: 20%;
+  margin-right: 5%;
+  margin-bottom: 5%;
+}
+
+#tid {
+  width: 20%;
+  margin-right: 5%; 
+}
+
+#personer1 {
+  width: 8%;
+  margin-right: 5%;
+}
+
+#tid1 {
+  width: 8%;
+  margin-right: 5%;
 }
 
 #klikkedopslagoverlaywrap p, #klikkedopslagoverlaywrap h2{
 margin: 0;
+font-weight: 300;
 }
 
 #userwrapstuff {
@@ -331,7 +423,7 @@ margin: 0;
 #Oimgwrap {
   height: 45%;
   width: 100%;
-  background: red;
+  background: var(--light-grey);
 }
 
 #placeimg {
@@ -342,52 +434,71 @@ margin: 0;
   transform: translate(-50%, -50%);
   top: 55%;
   left: 50%;
-  background-size: contain;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.opslagwrap h2 {
+  font-size: 1.2em;
+  font-weight: 300;
+}
+
+.opslagwrap p {
+  font-size: 0.8em;
 }
 
 #Obutwrap {
   height: 15%;
-  background: indigo;
+  background: var(--light-grey);
 }
 
 #Jbutton {
   position: relative;
   float: right;
-  width: 50%;
-  height: 100%;
-  background: yellow;
+  width: 25%;
+  height: 40%;
+  border-radius: 15px;
+  background-color: var(--dark-brown);
+  color: white;
+  text-transform: uppercase;
+  font-size: 1.3em;
+  font-weight: 350;
+  letter-spacing: 2px;
+  margin-right: 5%;
+}
+
+#Jbutton:only-child {
+  padding-top: 2%;
 }
 
 #OpslagsInf {
   height: 25%;
   width: 100%;
-  background: blue;
+  background: var(--light-grey);
   display: flex;
 }
 
 #OPImg {
-  height: 30vw;
-  width: 30vw;
-  background: rgb(0, 166, 255);
+  height: 25vw;
+  width: 25vw;
   border-radius: 50%;
-  background-size: contain;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-left: 5%;
 }
 
 #OPInf {
   height: 100%;
   flex-grow: 1;
-  background: rgb(208, 0, 255);
+  background: var(--light-grey);
 }
 
 #OPInftekstwrap {
 height: 60%;
 width: 100%;
-background: green;
-}
-
-
-#OPInfpropertywrap {
-
+background: var(--light-grey);
 }
 
 #MoreButwrap {
@@ -400,13 +511,27 @@ justify-content: space-between;
 #chatbut {
   width: 50%;
   height: 100%;
-  background: pink;
+  background: var(--light-grey);
+  padding-top: 5%;
+  font-size: 1em;
+}
+
+#chatbut img {
+  width: 20%;
+  padding-right: 5%;
 }
 
 #profilbut {
   width: 50%;
   height: 100%;
-  background: red;
+  background: var(--light-grey);
+  padding-top: 5%;
+  font-size: 1em;
+}
+
+#profilbut img {
+  width: 20%;
+  padding-right: 5%;
 }
 
 /* input form stryling */
@@ -422,13 +547,11 @@ form button {
   text-align: center;
   cursor: pointer;
   border: none;
-  padding: 12px 15px;
   font-size: 1em;
   border-radius: 20px;
   color: #ffffff !important;
-  background-color: rgb(38, 76, 89);
-  width: 100%;
-  max-width: 350px;
+  background-color: var(--dark-brown);
+  width: 50%;
 }
 
 input,
@@ -447,10 +570,17 @@ select {
 
 .firebaseui-container {
   font-family: 'Raleway', sans-serif;
+  background-color: var(--beige);
+  border-radius: 20px;
 }
 
 #firebaseui-auth-container {
-  margin-top: 10%;
+margin-left: 2%;
+margin-right: 2%;
+}
+
+.firebaseui-title {
+  text-align: center;
 }
 
 .mdl-button--raised.mdl-button--colored {
@@ -467,7 +597,7 @@ width: 10%;
 }
 
 .mdl-textfield__input { 
-background-color: var(--light-green);
+background-color: var(--beige);
 font-family: 'Raleway', sans-serif;
 }
 
@@ -484,16 +614,29 @@ color: black;
 }
 
 #butbubtu {
-  height: 100px;
-  z-index: 999999999999999999999999999999;
-  width: 922px;
-  position: absolute;
-  background: red;
+text-align: end;
+text-transform: uppercase;
+font-weight: 500;
+background-color: white;
+margin-bottom: 10%;
+padding-bottom: 10%;
+}
+
+#butbubtu {
+  padding: 3%;
 }
 
 #opretBruger {
-  height: 100vh;
   width: 100vw;
-  background-color: lawngreen;
-  display: none;
+  background-color: var(--beige);
+}
+
+#opretBruger button {
+  background-color: var(--dark-brown);
+  width: 40%;
+  margin-bottom: 10%;
+}
+
+#opretBruger input {
+  border: 1px solid var(--light-grey);
 }
