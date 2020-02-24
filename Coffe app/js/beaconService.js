@@ -31,7 +31,7 @@ export class beaconsService {
   // append users to the DOM via template string syntax
 
   appendBeacon(opslagS, value1) {
-    this.userRef.get().then(function(doc) {
+    this.userRef.get().then(function (doc) {
       // reset array
       specificopslagdivs = [];
       // if (doc.id == ""+value1+"") {  SLET?
@@ -87,7 +87,7 @@ function klikbareOpslag() {
   let htmlTemplate2 = "";
   for (var i = 0; i < ActiveClassList.length; i++) {
     ActiveClassList[i].id = i;
-    ActiveClassList[i].addEventListener("click", function() {
+    ActiveClassList[i].addEventListener("click", function () {
       // console.log(specificopslagdivs[this.id])
       htmlTemplate2 += `
       <div id="klikkedopslagoverlaywrap">
@@ -95,21 +95,21 @@ function klikbareOpslag() {
       <div id="resetknap"></div>
         <div id="Oimgwrap">
           <div id="placeimg" style="background-image: url('${
-            specificopslagdivs[this.id].img
-          }')"></div>
+        specificopslagdivs[this.id].img
+        }')"></div>
         </div>
         <div id="Obutwrap">
           <div id="Jbutton">Join</div>
         </div>
         <div id="OpslagsInf">
             <div id="OPImg" style="background-image: url('${
-              specificopslagdivs[this.id].profilimg
-            }')"></div>
+        specificopslagdivs[this.id].profilimg
+        }')"></div>
             <div id="OPInf">
               <div id="OPInftekstwrap">
                 <h2>${specificopslagdivs[this.id].name}    ${
         specificopslagdivs[this.id].alder
-      }</h2>
+        }</h2>
                 <p>${specificopslagdivs[this.id].emne}</p>
               </div>
               <div id="OPInfpropertywrap">
@@ -128,7 +128,7 @@ function klikbareOpslag() {
       document.getElementById("opslagklikwrapwrap").innerHTML = htmlTemplate2;
       document
         .getElementById("resetknap")
-        .addEventListener("click", function() {
+        .addEventListener("click", function () {
           htmlTemplate2 = "";
           document.getElementById(
             "opslagklikwrapwrap"
@@ -198,24 +198,10 @@ window.tagbillede = () => {
   tagbiledknap.addEventListener("click", tagbillede);
   accepterbilledeknap.addEventListener("click", acceptbillede);
 
-<<<<<<< HEAD
   let constraints = {
     video: true
   };
-=======
-let constraints = {
-  video: true
-};
 
-// let stream
-// let tracks
-let awasawa;
-navigator.mediaDevices.getUserMedia(constraints).
-then((stream) => {
-  awasawa = stream
-  video.srcObject = awasawa
-})
->>>>>>> master
 
   // let stream
   // let tracks
@@ -225,64 +211,31 @@ then((stream) => {
     video.srcObject = awasawa;
   });
 
-<<<<<<< HEAD
-  function lukcamera() {
-    htmlTemplate3 = "";
-    document.getElementById("camereholderDiv").innerHTML = htmlTemplate3;
-    awasawa.getTracks().forEach(function(track) {
-      track.stop();
-    });
-  }
-
-  var takepicmode;
+  var takepicmode
   function tagbillede() {
-    console.log();
+    console.log()
     if (takepicmode != 1) {
       video.pause();
       canvas.width = video.videoWidth;
       canvas.height = video.videoHeight;
-      canvas.getContext("2d").drawImage(video, 0, 0);
-      imagePreview.style.background =
-        "url(" + canvas.toDataURL("image/webp") + ")";
-      //
-      tagbiledknap.innerHTML = "nyt bilede?";
-      tagbiledknap.style.background = "brown";
-      //
+      canvas.getContext('2d').drawImage(video, 0, 0);
+      imagePreview.style.background = "url(" + canvas.toDataURL('image/webp') + ")";
+      // 
+      tagbiledknap.innerHTML = "Nyt billede?"
+      // 
       takepicmode = 1;
     } else {
       video.play();
-      tagbiledknap.innerHTML = "tag billede";
-      tagbiledknap.style.background = "green";
+      tagbiledknap.innerHTML = "Tag billede"
       takepicmode = 2;
     }
-  }
-=======
-var takepicmode 
-function tagbillede() {
-  console.log()
-  if (takepicmode != 1) {
-  video.pause();
-  canvas.width = video.videoWidth;
-  canvas.height = video.videoHeight;
-  canvas.getContext('2d').drawImage(video, 0, 0);
-  imagePreview.style.background = "url(" + canvas.toDataURL('image/webp') + ")";
-  // 
-  tagbiledknap.innerHTML = "Nyt billede?"
-    // 
-    takepicmode = 1;
-  } else {
-    video.play();
-    tagbiledknap.innerHTML = "Tag billede"
-    takepicmode = 2;
-  }
-};
->>>>>>> master
+  };
 
   function acceptbillede() {
     htmlTemplate3 = "";
     document.getElementById("camereholderDiv").innerHTML = htmlTemplate3;
     profileimagePreviewFunk(canvas.toDataURL("image/webp"));
-    awasawa.getTracks().forEach(function(track) {
+    awasawa.getTracks().forEach(function (track) {
       track.stop();
     });
   }
@@ -293,7 +246,7 @@ function tagbillede() {
 window.createBeacon = () => {
   docRef
     .get()
-    .then(function(doc) {
+    .then(function (doc) {
       let _beaconService = new beaconsService();
       let cafeInput = document.querySelector("#dropdowncafe");
       let name = doc.data().navn;
@@ -311,7 +264,7 @@ window.createBeacon = () => {
         "tid"
       );
     })
-    .catch(function(error) {
+    .catch(function (error) {
       console.log("Error getting document:", error);
     });
 };
