@@ -1,45 +1,94 @@
+/* ---------- root variables ---------- */
+:root {
+  --dark-brown: #5E4747;
+    --beige: #E7E2DD;
+    --light-grey: #F8F8F8;
+  }
+
 html {
-  font-family: Helvetica, Arial, sans-serif;
-  font-weight: 200;
+  font-family: 'Raleway', sans-serif;
+  height: 100%;
+  text-align: center;
+  width: 100%;
+  font-weight: 400;
 }
 
 body {
   margin: 0;
   overflow-x: hidden;
+  font-family: 'Raleway', sans-serif;
 }
 
 h1 {
-
+  font-family: 'Raleway', sans-serif;
+  font-size: 2em;
+  font-weight: 300;
+  letter-spacing: 3px;
+  text-transform: uppercase;
 }
 
 h3 {
+  font-weight: 400;
+  letter-spacing: 2px;
+}
 
+p {
+  font-weight: 200;
 }
 
 /* ---------- tabbar styling ---------- */
 .tabbar {
   position: fixed;
   bottom: 0;
-  z-index: 9999;
+  left: 0;
+  right: 0;
+  border-top: 1px solid;
+  z-index: 999999999999999;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
 }
 
 /* Style the links inside the navigation bar */
 .tabbar a {
   display: inline-block;
-  color: var(--text-color-light);
   text-align: center;
-  padding: 20px 16px;
   text-decoration: none;
-  font-size: 0.8em;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  font-size: 1em;
+  width: 20%;
+  color: black;
+  padding-top: 1%;
+}
+
+/* Change the color of links on hover */
+.tabbar a:hover {
+cursor: pointer;
 }
 
 /* Add a color to the active/current link */
 .tabbar a.active {
-  background-color: blue;
-  color: white;
+background-color: var(--beige);
 }
+
+.map-icon img{
+  width: 60%;
+ }
+ 
+ .chat-icon img {
+   width: 55%;
+ }
+ 
+ .opslag-icon img {
+ width: 55%;
+ }
+ 
+ .profil-icon img {
+   width: 55%;
+ }
+ 
+ #dropdowncafe {
+   border-radius: 0;
+ }
 
 /* ---------- page styling ---------- */
 .page {
@@ -72,11 +121,12 @@ form button {
   border: none;
   padding: 12px 15px;
   font-size: 1em;
-  border-radius: 0;
+  border-radius: 15px;
   color: #ffffff !important;
-  background-color: rgb(38, 76, 89);
-  width: 100%;
+  background-color: var(--dark-brown);
+  width: 40%;
   max-width: 350px;
+  margin-bottom: 2%;
 }
 
 input,
@@ -88,9 +138,8 @@ select {
   padding: 15px 15px;
   box-sizing: border-box;
   display: block;
-  background: #fff;
-  border: 0;
-  border-radius: 0;
+  background: var(--light-grey);
+  border: 1px solid;
 }
 
 /* styling til beacons slettes senere!*/
@@ -149,6 +198,9 @@ background: radial-gradient(circle, rgba(63,94,251,0) 0%, rgba(0,0,0,1) 100%);
   height: 75px;
   display: flex;
   width: 100vw;
+  background-color: var(--light-grey);
+  border-bottom: 1px solid;
+  margin-top: 1%;
 }
 
 .opslagwrap h2, .opslagwrap p{
@@ -156,8 +208,8 @@ background: radial-gradient(circle, rgba(63,94,251,0) 0%, rgba(0,0,0,1) 100%);
 }
 
 #profilimg {
-  width: 75px;
-  height: 100%;
+  width: 60px;
+  height: 60px;
   background: blueviolet;
   border-radius: 50%;
   background-size: contain;
@@ -166,7 +218,6 @@ background: radial-gradient(circle, rgba(63,94,251,0) 0%, rgba(0,0,0,1) 100%);
 #infoogshit {
   width: 75px;
   height: 100%;
-  background: rgb(0, 166, 255);
 }
 
 #tekstogshit {
@@ -277,13 +328,6 @@ video {
   background-color: blue;
 }
 
-/* #home {
-position: relative;
-} */
-
-
-
-
 /* OLAY NÅR MAN TRYKKER PÅ OPSLAG */
 
 #opslagklikwrapwrap {
@@ -313,6 +357,7 @@ position: relative;
 
 #klikkedopslagoverlaywrap p, #klikkedopslagoverlaywrap h2{
 margin: 0;
+font-weight: 300;
 }
 
 #userwrapstuff {
@@ -331,7 +376,7 @@ margin: 0;
 #Oimgwrap {
   height: 45%;
   width: 100%;
-  background: red;
+  background: var(--light-grey);
 }
 
 #placeimg {
@@ -343,6 +388,11 @@ margin: 0;
   top: 55%;
   left: 50%;
   background-size: contain;
+}
+
+.opslagwrap h2 {
+  font-size: 1.2em;
+  font-weight: 300;
 }
 
 #Obutwrap {
@@ -376,18 +426,13 @@ margin: 0;
 #OPInf {
   height: 100%;
   flex-grow: 1;
-  background: rgb(208, 0, 255);
+  background: var(--light-grey);
 }
 
 #OPInftekstwrap {
 height: 60%;
 width: 100%;
 background: green;
-}
-
-
-#OPInfpropertywrap {
-
 }
 
 #MoreButwrap {
@@ -486,7 +531,7 @@ color: black;
 #butbubtu {
   height: 100px;
   z-index: 999999999999999999999999999999;
-  width: 922px;
+  width: 100%;
   position: absolute;
   background: red;
 }
