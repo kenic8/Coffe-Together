@@ -1,12 +1,11 @@
 "use strict";
-import {beaconsService} from "./beaconService.js";
-import {modifyMarksers} from "./modifyMarksers.js";
-import { filterService } from "./filter.js";
+import { beaconsService } from "./beaconService.js";
+import { modifyMarksers } from "./modifyMarksers.js";
+
 let olay = document.getElementById("mapoverlay");
 
 
-////filter lav en ny instance af filter til opslag
-new filterService();
+
 
 
 // MAP STUFF ////////////////////////////

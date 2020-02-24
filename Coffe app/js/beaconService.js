@@ -1,16 +1,15 @@
-import {firebaseDB} from "./firebase.js";
-import {docRef} from "./loginService.js";
+import { firebaseDB } from "./firebase.js";
+import { docRef } from "./loginService.js";
 // let _selectedImgFile = "";
 
 // vars til opslag knapper på map
-let specificopslagdivs = []
+let specificopslagdivs = [];
 let ActiveClassList;
-
 
 export class beaconsService {
   constructor(value1) {
     this.userRef = firebaseDB.collection("beacons").doc("" + value1 + "");
-    this.opslag = firebaseDB.collection("opslag")
+    this.opslag = firebaseDB.collection("opslag");
     this.read(value1);
   }
 
@@ -32,9 +31,9 @@ export class beaconsService {
   // append users to the DOM via template string syntax
 
   appendBeacon(opslagS, value1) {
-    this.userRef.get().then(function (doc) {
+    this.userRef.get().then(function(doc) {
       // reset array
-      specificopslagdivs = []
+      specificopslagdivs = [];
       // if (doc.id == ""+value1+"") {  SLET?
       let htmlTemplate = "";
       for (let opslag of opslagS) {
@@ -62,9 +61,8 @@ export class beaconsService {
 
       // klikbare opslag function
       klikbareOpslag(opslagS);
-    })
+    });
   }
-
 
   /// create a beaconpost object
 
@@ -77,35 +75,41 @@ export class beaconsService {
       emne: emne,
       img: img,
       personer: personer,
-      tid: tid,
+      tid: tid
     };
     this.opslag.add(newOpslag);
   }
 }
 
-
 // popup når man klikker på et opslag
-let htmlTemplate2 = "";
+
 function klikbareOpslag() {
+  let htmlTemplate2 = "";
   for (var i = 0; i < ActiveClassList.length; i++) {
     ActiveClassList[i].id = i;
-    ActiveClassList[i].addEventListener("click", function () {
+    ActiveClassList[i].addEventListener("click", function() {
       // console.log(specificopslagdivs[this.id])
       htmlTemplate2 += `
       <div id="klikkedopslagoverlaywrap">
       <div id="userwrapstuff">
       <div id="resetknap"></div>
         <div id="Oimgwrap">
-          <div id="placeimg" style="background-image: url('${specificopslagdivs[this.id].img}')"></div>
+          <div id="placeimg" style="background-image: url('${
+            specificopslagdivs[this.id].img
+          }')"></div>
         </div>
         <div id="Obutwrap">
           <div id="Jbutton"></div>
         </div>
         <div id="OpslagsInf">
-            <div id="OPImg" style="background-image: url('${specificopslagdivs[this.id].profilimg}')"></div>
+            <div id="OPImg" style="background-image: url('${
+              specificopslagdivs[this.id].profilimg
+            }')"></div>
             <div id="OPInf">
               <div id="OPInftekstwrap">
-                <h2>${specificopslagdivs[this.id].name}    ${specificopslagdivs[this.id].alder}</h2>
+                <h2>${specificopslagdivs[this.id].name}    ${
+        specificopslagdivs[this.id].alder
+      }</h2>
                 <p>${specificopslagdivs[this.id].emne}</p>
               </div>
               <div id="OPInfpropertywrap">
@@ -122,14 +126,17 @@ function klikbareOpslag() {
     </div>
       `;
       document.getElementById("opslagklikwrapwrap").innerHTML = htmlTemplate2;
-      document.getElementById("resetknap").addEventListener("click", function () {
-        htmlTemplate2 = "";
-        document.getElementById("opslagklikwrapwrap").innerHTML = htmlTemplate2;
-      })
-    })
+      document
+        .getElementById("resetknap")
+        .addEventListener("click", function() {
+          htmlTemplate2 = "";
+          document.getElementById(
+            "opslagklikwrapwrap"
+          ).innerHTML = htmlTemplate2;
+        });
+    });
   }
 }
-
 
 // CAMERA SKAL RYKKES
 // let video = document.querySelector('video');
@@ -156,25 +163,19 @@ function klikbareOpslag() {
 //   sheet = "" + canvas.toDataURL('image/webp') + ""
 // };
 
+const canvas = document.querySelector("canvas");
+let imagePreview = document.querySelector("#imagePreview");
 
-
-
-
-
-const canvas = document.querySelector('canvas');
-let imagePreview = document.querySelector('#imagePreview');
-
-let profileimagePreview = document.querySelector('#profileimagePreview');
+let profileimagePreview = document.querySelector("#profileimagePreview");
 
 let sheet;
 function profileimagePreviewFunk(dispic) {
-  profileimagePreview.style.background = "url("+dispic+")"
+  profileimagePreview.style.background = "url(" + dispic + ")";
   sheet = dispic;
 }
 
-
 // CAMERA
-let htmlTemplate3 = '';
+let htmlTemplate3 = "";
 window.tagbillede = () => {
   htmlTemplate3 += `
   <section id="camerawrap">
@@ -189,88 +190,91 @@ window.tagbillede = () => {
   `;
   document.getElementById("camereholderDiv").innerHTML = htmlTemplate3;
 
-
-  let video = document.querySelector('video');
-  var stopcaneraknap = document.getElementById("stopcaneraknap")
-  var tagbiledknap = document.getElementById("tagbilledeknap")
-  var accepterbilledeknap = document.getElementById("accepterbilledeknap")
+  let video = document.querySelector("video");
+  var stopcaneraknap = document.getElementById("stopcaneraknap");
+  var tagbiledknap = document.getElementById("tagbilledeknap");
+  var accepterbilledeknap = document.getElementById("accepterbilledeknap");
   stopcaneraknap.addEventListener("click", lukcamera);
   tagbiledknap.addEventListener("click", tagbillede);
   accepterbilledeknap.addEventListener("click", acceptbillede);
 
-let constraints = {
-  video: true
-};
+  let constraints = {
+    video: true
+  };
 
-// let stream
-// let tracks
-let awasawa;
-navigator.mediaDevices.getUserMedia(constraints).
-then((stream) => {
-  awasawa = stream
-  video.srcObject = awasawa
-
-})
-
-function lukcamera() {
-  htmlTemplate3 = '';
-  document.getElementById("camereholderDiv").innerHTML = htmlTemplate3;
-  awasawa.getTracks().forEach(function(track) {
-    track.stop();
+  // let stream
+  // let tracks
+  let awasawa;
+  navigator.mediaDevices.getUserMedia(constraints).then(stream => {
+    awasawa = stream;
+    video.srcObject = awasawa;
   });
-}
 
-var takepicmode 
-function tagbillede() {
-  console.log()
-  if (takepicmode != 1) {
-  video.pause();
-  canvas.width = video.videoWidth;
-  canvas.height = video.videoHeight;
-  canvas.getContext('2d').drawImage(video, 0, 0);
-  imagePreview.style.background = "url(" + canvas.toDataURL('image/webp') + ")";
-  // 
-  tagbiledknap.innerHTML = "nyt bilede?"
-  tagbiledknap.style.background = "brown"
-    // 
-    takepicmode = 1;
-  } else {
-    video.play();
-    tagbiledknap.innerHTML = "tag billede"
-    tagbiledknap.style.background = "green"
-    takepicmode = 2;
+  function lukcamera() {
+    htmlTemplate3 = "";
+    document.getElementById("camereholderDiv").innerHTML = htmlTemplate3;
+    awasawa.getTracks().forEach(function(track) {
+      track.stop();
+    });
   }
 
+  var takepicmode;
+  function tagbillede() {
+    console.log();
+    if (takepicmode != 1) {
+      video.pause();
+      canvas.width = video.videoWidth;
+      canvas.height = video.videoHeight;
+      canvas.getContext("2d").drawImage(video, 0, 0);
+      imagePreview.style.background =
+        "url(" + canvas.toDataURL("image/webp") + ")";
+      //
+      tagbiledknap.innerHTML = "nyt bilede?";
+      tagbiledknap.style.background = "brown";
+      //
+      takepicmode = 1;
+    } else {
+      video.play();
+      tagbiledknap.innerHTML = "tag billede";
+      tagbiledknap.style.background = "green";
+      takepicmode = 2;
+    }
+  }
+
+  function acceptbillede() {
+    htmlTemplate3 = "";
+    document.getElementById("camereholderDiv").innerHTML = htmlTemplate3;
+    profileimagePreviewFunk(canvas.toDataURL("image/webp"));
+    awasawa.getTracks().forEach(function(track) {
+      track.stop();
+    });
+  }
 };
-
-function acceptbillede() {
-  htmlTemplate3 = '';
-  document.getElementById("camereholderDiv").innerHTML = htmlTemplate3;
-  profileimagePreviewFunk(canvas.toDataURL('image/webp'));
-  awasawa.getTracks().forEach(function(track) {
-    track.stop();
-  });
-}
-};
-
-
 
 // ========== CREATE ==========
 
 window.createBeacon = () => {
-  docRef.get().then(function(doc) {
-  let _beaconService = new beaconsService();
-  let cafeInput = document.querySelector("#dropdowncafe")
-  let name = doc.data().navn;
-  let alder = doc.data().alder;
-  let profilimg = doc.data().profilimg;
-  let emneInput = document.querySelector("#emne");
-  _beaconService.createBeacon(cafeInput.value, profilimg, name, alder, emneInput.value, sheet, "personer", "tid");
-}).catch(function(error) {
-  console.log("Error getting document:", error);
-});
+  docRef
+    .get()
+    .then(function(doc) {
+      let _beaconService = new beaconsService();
+      let cafeInput = document.querySelector("#dropdowncafe");
+      let name = doc.data().navn;
+      let alder = doc.data().alder;
+      let profilimg = doc.data().profilimg;
+      let emneInput = document.querySelector("#emne");
+      _beaconService.createBeacon(
+        cafeInput.value,
+        profilimg,
+        name,
+        alder,
+        emneInput.value,
+        sheet,
+        "personer",
+        "tid"
+      );
+    })
+    .catch(function(error) {
+      console.log("Error getting document:", error);
+    });
 };
-
-
-
-
