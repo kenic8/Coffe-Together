@@ -48,8 +48,8 @@ export class beaconsService {
         <p>${opslag.emne}</p>
         </div>
         <div id="infoogshit">
-        <p>p 2</p>
-        <p>tid</p>
+        <p><img id="personer" src="images/account.png">2</p>
+        <p><img id="tid" src="images/clock.png">tid</p>
         </div>
         </div>
         `;
@@ -99,7 +99,7 @@ function klikbareOpslag() {
           <div id="placeimg" style="background-image: url('${specificopslagdivs[this.id].img}')"></div>
         </div>
         <div id="Obutwrap">
-          <div id="Jbutton"></div>
+          <div id="Jbutton">Join</div>
         </div>
         <div id="OpslagsInf">
             <div id="OPImg" style="background-image: url('${specificopslagdivs[this.id].profilimg}')"></div>
@@ -109,14 +109,14 @@ function klikbareOpslag() {
                 <p>${specificopslagdivs[this.id].emne}</p>
               </div>
               <div id="OPInfpropertywrap">
-                <p>${specificopslagdivs[this.id].tid}</p>
-                <p>${specificopslagdivs[this.id].personer}</p>
+                <p><img id="tid1" src="images/clock.png">${specificopslagdivs[this.id].tid}</p>
+                <p><img id="personer1" src="images/account.png">${specificopslagdivs[this.id].personer}</p>
               </div>
             </div>
         </div>
         <div id="MoreButwrap">
-          <div id="chatbut"></div>
-          <div id="profilbut"></div>
+          <div id="chatbut"><img src="images/chat.png">Gå til chat</div>
+          <div id="profilbut"><img src="images/account.png">Gå til profil</div>
         </div>
       </div>
     </div>
@@ -181,8 +181,8 @@ window.tagbillede = () => {
   <video autoplay></video>
   <div id="butwrapcamera">
     <div id="stopcaneraknap">Luk</div>
-    <div id="tagbilledeknap">tag billede</div>
-    <div id="accepterbilledeknap">accepter billede</div>
+    <div id="tagbilledeknap">Tag billede</div>
+    <div id="accepterbilledeknap">Accepter billede</div>
   </div>
   <div id="darkbg"></div>
 </section>
@@ -209,7 +209,6 @@ navigator.mediaDevices.getUserMedia(constraints).
 then((stream) => {
   awasawa = stream
   video.srcObject = awasawa
-
 })
 
 function lukcamera() {
@@ -230,17 +229,14 @@ function tagbillede() {
   canvas.getContext('2d').drawImage(video, 0, 0);
   imagePreview.style.background = "url(" + canvas.toDataURL('image/webp') + ")";
   // 
-  tagbiledknap.innerHTML = "nyt bilede?"
-  tagbiledknap.style.background = "brown"
+  tagbiledknap.innerHTML = "Nyt billede?"
     // 
     takepicmode = 1;
   } else {
     video.play();
-    tagbiledknap.innerHTML = "tag billede"
-    tagbiledknap.style.background = "green"
+    tagbiledknap.innerHTML = "Tag billede"
     takepicmode = 2;
   }
-
 };
 
 function acceptbillede() {
@@ -252,8 +248,6 @@ function acceptbillede() {
   });
 }
 };
-
-
 
 // ========== CREATE ==========
 

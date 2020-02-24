@@ -19,6 +19,7 @@ body {
   font-family: 'Raleway', sans-serif;
 }
 
+/*-------- text styling ------*/
 h1 {
   font-family: 'Raleway', sans-serif;
   font-size: 2em;
@@ -32,8 +33,21 @@ h3 {
   letter-spacing: 2px;
 }
 
+h2 {
+  font-weight: 300;
+  letter-spacing: 2px;
+}
+
 p {
   font-weight: 200;
+}
+
+#logo {
+  margin-top: 30%;
+  font-family: 'Galada', cursive;
+  font-size: 3em;
+text-transform: none;
+color: var(--dark-brown);
 }
 
 /* ---------- tabbar styling ---------- */
@@ -114,7 +128,7 @@ background-color: var(--beige);
   transition: visibility 0s 0.4s, opacity 0.4s linear;
 }
 
-
+/*---------- form styling --------*/
 form button {
   font-weight: 200;
   text-align: center;
@@ -128,6 +142,7 @@ form button {
   width: 40%;
   max-width: 350px;
   margin-bottom: 2%;
+  margin-top: 2%;
 }
 
 input,
@@ -168,12 +183,10 @@ select {
 background: radial-gradient(circle, rgba(63,94,251,0) 0%, rgba(0,0,0,1) 100%);
 }
 
-
 #map {
   height: 100%;
   width: 100%;
 }
-
 
 #opslagmenuwrap {
   height: 100%;
@@ -186,7 +199,6 @@ background: radial-gradient(circle, rgba(63,94,251,0) 0%, rgba(0,0,0,1) 100%);
   height: 15%;
   background: green;
 }
-
 
 #alleopslag {
   height: max-content;
@@ -203,9 +215,8 @@ background: radial-gradient(circle, rgba(63,94,251,0) 0%, rgba(0,0,0,1) 100%);
   height: 75px;
   display: flex;
   width: 100vw;
-  background-color: var(--light-grey);
   border-bottom: 1px solid;
-  margin-top: 1%;
+  margin-top: 2%;
 }
 
 .opslagwrap h2, .opslagwrap p{
@@ -220,6 +231,7 @@ background: radial-gradient(circle, rgba(63,94,251,0) 0%, rgba(0,0,0,1) 100%);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  margin-left: 5%;
 }
 
 #infoogshit {
@@ -291,25 +303,31 @@ video {
 #stopcaneraknap {
   z-index: 9999999;
   width: 40%;
-  height: 50px;
-  background: red;
+  height: 30px;
+  background: var(--dark-brown);
+  border-radius: 15px;
+  font-weight: 200;
 }
 
 #tagbilledeknap {
   z-index: 9999999;
   width: 40%;
-  height: 50px;
-  background: green;
+  height: 30px;
+  background: var(--dark-brown);
+  border-radius: 15px;
+  font-weight: 200;
 }
 
 #accepterbilledeknap {
   z-index: 9999999;
-  width: 90%;
-  height: 50px;
-  background: blue;
+  width: 60%;
+  height: 30px;
+  background: var(--dark-brown);
+  border-radius: 15px;
+  font-weight: 200;
 }
 
-#takepicbut {
+/*#takepicbut {
   height: 90px;
   width: 90px;
   background-color: red;
@@ -318,7 +336,7 @@ video {
   top: 80%;
   left: 50%;
   border-radius: 50%;
-}
+}*/
 
 #imagePreview {
   height: 30vw;
@@ -330,10 +348,10 @@ video {
   height: 30vw;
   width: 90vw;
   background-color: blue;
+  margin-top: 5%;
 }
 
 /* OLAY NÅR MAN TRYKKER PÅ OPSLAG */
-
 #opslagklikwrapwrap {
   z-index: 99999999999999999;
   position: absolute;
@@ -344,8 +362,9 @@ video {
   z-index: 99999999;
   height: 100vh;
   width: 100vw;
-  background: black;
+  background: rgba(0, 0, 0, 0.5);
   opacity: 1;
+  font-size: 0.9em;
 }
 
 #resetknap {
@@ -360,6 +379,27 @@ video {
   left: 93%;
   top: 3.5%;
   z-index: 99999999;
+}
+
+#personer {
+  width: 20%;
+  margin-right: 5%;
+  margin-bottom: 5%;
+}
+
+#tid {
+  width: 20%;
+  margin-right: 5%; 
+}
+
+#personer1 {
+  width: 8%;
+  margin-right: 5%;
+}
+
+#tid1 {
+  width: 8%;
+  margin-right: 5%;
 }
 
 #klikkedopslagoverlaywrap p, #klikkedopslagoverlaywrap h2{
@@ -384,7 +424,6 @@ font-weight: 300;
   height: 45%;
   width: 100%;
   background: var(--light-grey);
-  border-bottom: 1px solid;
 }
 
 #placeimg {
@@ -405,6 +444,10 @@ font-weight: 300;
   font-weight: 300;
 }
 
+.opslagwrap p {
+  font-size: 0.8em;
+}
+
 #Obutwrap {
   height: 15%;
   background: var(--light-grey);
@@ -413,9 +456,20 @@ font-weight: 300;
 #Jbutton {
   position: relative;
   float: right;
-  width: 50%;
-  height: 100%;
-  background: yellow;
+  width: 25%;
+  height: 40%;
+  border-radius: 15px;
+  background-color: var(--dark-brown);
+  color: white;
+  text-transform: uppercase;
+  font-size: 1.3em;
+  font-weight: 350;
+  letter-spacing: 2px;
+  margin-right: 5%;
+}
+
+#Jbutton:only-child {
+  padding-top: 2%;
 }
 
 #OpslagsInf {
@@ -426,13 +480,13 @@ font-weight: 300;
 }
 
 #OPImg {
-  height: 30vw;
-  width: 30vw;
-  background: rgb(0, 166, 255);
+  height: 25vw;
+  width: 25vw;
   border-radius: 50%;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  margin-left: 5%;
 }
 
 #OPInf {
@@ -457,13 +511,27 @@ justify-content: space-between;
 #chatbut {
   width: 50%;
   height: 100%;
-  background: pink;
+  background: var(--light-grey);
+  padding-top: 5%;
+  font-size: 1em;
+}
+
+#chatbut img {
+  width: 20%;
+  padding-right: 5%;
 }
 
 #profilbut {
   width: 50%;
   height: 100%;
-  background: red;
+  background: var(--light-grey);
+  padding-top: 5%;
+  font-size: 1em;
+}
+
+#profilbut img {
+  width: 20%;
+  padding-right: 5%;
 }
 
 /* input form stryling */
@@ -479,13 +547,11 @@ form button {
   text-align: center;
   cursor: pointer;
   border: none;
-  padding: 12px 15px;
   font-size: 1em;
   border-radius: 20px;
   color: #ffffff !important;
-  background-color: rgb(38, 76, 89);
-  width: 100%;
-  max-width: 350px;
+  background-color: var(--dark-brown);
+  width: 50%;
 }
 
 input,
@@ -504,10 +570,17 @@ select {
 
 .firebaseui-container {
   font-family: 'Raleway', sans-serif;
+  background-color: var(--beige);
+  border-radius: 20px;
 }
 
 #firebaseui-auth-container {
-  margin-top: 10%;
+margin-left: 2%;
+margin-right: 2%;
+}
+
+.firebaseui-title {
+  text-align: center;
 }
 
 .mdl-button--raised.mdl-button--colored {
@@ -524,7 +597,7 @@ width: 10%;
 }
 
 .mdl-textfield__input { 
-background-color: var(--light-green);
+background-color: var(--beige);
 font-family: 'Raleway', sans-serif;
 }
 
@@ -541,16 +614,29 @@ color: black;
 }
 
 #butbubtu {
-  height: 100px;
-  z-index: 999999999999999999999999999999;
-  width: 100%;
-  position: absolute;
-  background: red;
+text-align: end;
+text-transform: uppercase;
+font-weight: 500;
+background-color: white;
+margin-bottom: 10%;
+padding-bottom: 10%;
+}
+
+#butbubtu {
+  padding: 3%;
 }
 
 #opretBruger {
-  height: 100vh;
   width: 100vw;
-  background-color: lawngreen;
-  display: none;
+  background-color: var(--beige);
+}
+
+#opretBruger button {
+  background-color: var(--dark-brown);
+  width: 40%;
+  margin-bottom: 10%;
+}
+
+#opretBruger input {
+  border: 1px solid var(--light-grey);
 }

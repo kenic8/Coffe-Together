@@ -17,7 +17,7 @@
     <a class="map-icon" href="#home"><img src="images/map.png">Kort</a>
     <a class="chat-icon" href="#side2"><img src="images/chat.png">Chat</a>
     <a class="opslag-icon" href="#create"><img src="images/bell.png">Opslag</a>
-    <a class="profil-icon" href="#opslag"><img src="images/account.png">Profil</a>
+    <a class="profil-icon" href="#opretBruger"><img src="images/account.png">Profil</a>
   </nav>
 
   <!-- <video autoplay style="display: none;"></video> -->
@@ -95,52 +95,40 @@
       <div id="takepicbut"></div>
   </section>
 
-  <!-- Opslag page -->
-  <section id="opslag" class="page">
-    <div id="butbubtu"></div>
     <div id="takepicbut" onclick="createbruger()"></div>
   </section>
 
-
-
-
     <!-- login page -->
     <section id="login" class="page">
+      <h1 id="logo">Coffee Together</h1>
       <!-- <div class="logo">Coffee Together</div> -->
       <div id="camereholderDivP"></div>
       <!-- firebase auth container  -->
       <section id="firebaseui-auth-container"></section>
-      <section id="opretBruger">
-        <form>
-          <input type="text" id="name" placeholder="Name" required />
-          <input type="text" id="alder" placeholder="Alder" required />
-          <input type="text" id="fkaffe" placeholder="Farvorit kaffe" required />
-          <input type="text" id="Omig" placeholder="Om mig" required />
-          <input type="file" id="img" accept="image/*" onchange="previewImage(this.files[0], 'imagePreview')">
-          <button type="button" name="button" onclick="tagbilledep()">
-            Tag billede
-          </button>
-          <img id="profileimagePreview" class="image-preview" />
-          <!-- <a href="#home"> -->
-            <button type="button" name="button" onclick="createbruger()">
-              GO!
-            </button>
-          <!-- </a> -->
-        </form>
-      </section>
       <!-- <a class="" href="#opret" onclick="">Opret bruger</a> -->
     </section>
-
-    <!-- <section id="opret" class="page">
-      <h2>Opret bruger</h2>
-      <input type="text" id="navn" placeholder="Navn" required>
-      <input type="text" id="email" placeholder="Email" required>
-      <input type="text" id="telefon" placeholder="Telefon" required>
-      <input type="text" id="adgangskode" placeholder="Adgangskode" required>
-      <input type="text" id="bekræft_adgangskode" placeholder="Bekræft Adgangskode" required>
-      <button type="button" name="button" onclick="create()">Opret</button>
+   
+   <!-- opret bruger page-->
+    <section id="opretBruger" class="page">
+      <div id="butbubtu">Log ud</div>
+      <form>
+        <h2>Opret bruger</h2>
+        <input type="text" id="name" placeholder="Name" required />
+        <input type="text" id="alder" placeholder="Alder" required />
+        <input type="text" id="fkaffe" placeholder="Farvorit kaffe" required />
+        <input type="text" id="Omig" placeholder="Om mig" required />
+        <input type="file" id="img" accept="image/*" onchange="previewImage(this.files[0], 'imagePreview')">
+        <img id="profileimagePreview" class="image-preview" />
+        <button type="button" name="button" onclick="tagbilledep()">
+          Tag billede
+        </button>
+        <!-- <a href="#home"> -->
+          <button type="button" name="button" onclick="createbruger()">
+            Opret!
+          </button>
+        <!-- </a> -->
+      </form>
     </section>
- -->
 
   <!-- Mao API -->
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDV4i1136Altv5jZLueDEt5gMTHO5dyU6o" async defer>
