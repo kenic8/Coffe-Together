@@ -99,7 +99,7 @@ function klikbareOpslag() {
           <div id="placeimg" style="background-image: url('${specificopslagdivs[this.id].img}')"></div>
         </div>
         <div id="Obutwrap">
-          <div id="Jbutton">Join</div>
+        <div id="Jbutton">Join!</div>
         </div>
         <div id="OpslagsInf">
             <div id="OPImg" style="background-image: url('${specificopslagdivs[this.id].profilimg}')"></div>
@@ -129,7 +129,6 @@ function klikbareOpslag() {
     })
   }
 }
-
 
 // CAMERA SKAL RYKKES
 // let video = document.querySelector('video');

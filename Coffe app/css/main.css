@@ -45,9 +45,9 @@ p {
 #logo {
   margin-top: 30%;
   font-family: 'Galada', cursive;
-  font-size: 3em;
-text-transform: none;
-color: var(--dark-brown);
+  font-size: 2.5em;
+  text-transform: none;
+  color: var(--dark-brown);
 }
 
 /* ---------- tabbar styling ---------- */
@@ -76,12 +76,12 @@ color: var(--dark-brown);
 
 /* Change the color of links on hover */
 .tabbar a:hover {
-cursor: pointer;
+  cursor: pointer;
 }
 
 /* Add a color to the active/current link */
 .tabbar a.active {
-background-color: var(--beige);
+  background-color: var(--beige);
 }
 
 .map-icon img{
@@ -180,7 +180,7 @@ select {
   height: 100%;
   width: 100%;
   background: rgba(63, 94, 251, 0);
-background: radial-gradient(circle, rgba(63,94,251,0) 0%, rgba(0,0,0,1) 100%);
+  background: radial-gradient(circle, rgba(63,94,251,0) 0%, rgba(0,0,0,1) 100%);
 }
 
 #map {
@@ -223,10 +223,14 @@ background: radial-gradient(circle, rgba(63,94,251,0) 0%, rgba(0,0,0,1) 100%);
   margin: 0;
 }
 
+#opslagwrapwrap {
+  margin-bottom: 50px;
+}
+
 #profilimg {
   width: 60px;
   height: 60px;
-  background: blueviolet;
+  background: var(--light-grey);
   border-radius: 50%;
   background-size: cover;
   background-position: center;
@@ -403,14 +407,14 @@ video {
 }
 
 #klikkedopslagoverlaywrap p, #klikkedopslagoverlaywrap h2{
-margin: 0;
-font-weight: 300;
+  margin: 0;
+  font-weight: 300;
 }
 
 #userwrapstuff {
   height: 75%;
   width: 90%;
-  background: green;
+  background: var(--light-grey);
   position: absolute;
   z-index: 99999999999;
   transform: translate(-50%, -50%);
@@ -462,10 +466,11 @@ font-weight: 300;
   background-color: var(--dark-brown);
   color: white;
   text-transform: uppercase;
-  font-size: 1.3em;
+  font-size: 1em;
   font-weight: 350;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   margin-right: 5%;
+  margin-bottom: 0;
 }
 
 #Jbutton:only-child {
@@ -534,14 +539,6 @@ justify-content: space-between;
   padding-right: 5%;
 }
 
-/* input form stryling */
-form {
-  margin-left: 5%;
-  margin-right: 5%;
-  background-color: var(--light-green);
-  border-radius: 10%;
-}
-
 form button {
   font-weight: 200;
   text-align: center;
@@ -596,6 +593,10 @@ width: 10%;
   background-color: var(--dark-brown);
 }
 
+.mdl-button--raised.mdl-button--colored:hover {
+  background-color: var(--dark-brown);
+}
+
 .mdl-textfield__input { 
 background-color: var(--beige);
 font-family: 'Raleway', sans-serif;
@@ -613,6 +614,12 @@ text-align: center;
 color: black;
 }
 
+.firebaseui-card-header {
+  padding-top: 5%;
+  padding-left: 0;
+  padding-right: 0;
+}
+
 #butbubtu {
 text-align: end;
 text-transform: uppercase;
@@ -627,16 +634,21 @@ padding-bottom: 10%;
 }
 
 #opretBruger {
-  width: 100vw;
+  width: 100%;
   background-color: var(--beige);
 }
 
 #opretBruger button {
   background-color: var(--dark-brown);
   width: 40%;
-  margin-bottom: 10%;
+  margin-bottom: 40%;
 }
 
 #opretBruger input {
   border: 1px solid var(--light-grey);
+}
+
+.formstyle {
+  margin-left: 5%;
+  margin-right: 5%;
 }
