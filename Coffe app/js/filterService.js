@@ -64,8 +64,8 @@ export class filterService {
               <p>${beacons[i].emne}</p>
               </div>
               <div id="infoogshit">
-              <p>p 2</p>
-              <p>2t 22m</p>
+              <div class="chat2"><img src="images/account.png">2</div>
+              <div class="profil2"><img src="images/clock.png">2t</div>
               </div>
               </div>
               `;
