@@ -1,5 +1,5 @@
 import { firebaseDB } from "./firebase.js";
-
+import klikbareOpslag from './klikbaropslagService.js';
 
 // variabler til de forskellige funktioner længere nede
 let aktivitoplag;
@@ -29,11 +29,12 @@ export class filterService {
         beacon.push(beacons);
       });
       //// sæt beacon arrayet fra snapshot som value for funktionnen i filterbeacons
-      this.filterBeacon(beacon);
+      filterBeacon(beacon);
     });
   }
+}
 
-  filterBeacon(beacons) {
+  function filterBeacon(beacons) {
 
     /// få values fra input field
     let searchInput = document.querySelector("#inputvalue").value;
@@ -72,90 +73,87 @@ export class filterService {
         /// push beacon efter filteringen ind i et nyt array kaldet searchgroup
         searchGroup.push(beacons[i]);
 
-
       }
-
+      
+    }
+    console.log(searchGroup)
       //find elementet at render til i vores html opsætning
       document.getElementById("alleopslag").innerHTML = htmlTemplate;
       aktivitoplag = document.getElementsByClassName("opslagwrap");
 
       /// gør klar til at at væres klikfunktion kan køres
-      this.klikOpslag();
-
-
-
-    }
+      klikbareOpslag(aktivitoplag, searchGroup);
   }
 
-  klikOpslag() {
+  // klikOpslag() {
 
 
 
-    ///klikfunktionen defineres
+  //   ///klikfunktionen defineres
 
-    /// htmlpop for at lave en tom html template at render til
-    let htmlTemplatepopup = "";
-    for (var i = 0; i < aktivitoplag.length; i++) {
+  //   /// htmlpop for at lave en tom html template at render til
+  //   let htmlTemplatepopup = "";
+  //   for (var i = 0; i < aktivitoplag.length; i++) {
 
-      /// sæt aktivt class id proptery til at være indexet i arrayet. Så vi har indexeret de bestemte objekter i arrayet
-      aktivitoplag[i].id = i;
+  //     /// sæt aktivt class id proptery til at være indexet i arrayet. Så vi har indexeret de bestemte objekter i arrayet
+  //     aktivitoplag[i].id = i;
 
-      /// eventlisner til at se høre efter click i arryet  
-      aktivitoplag[i].addEventListener("click", function () {
+  //     /// eventlisner til at se høre efter click i arryet  
+  //     aktivitoplag[i].addEventListener("click", function () {
 
-        console.log(this.id)
-        ///gør klar til at render vores informationer i objekterne til dommen
-        htmlTemplatepopup += `
-        <div id="klikkedopslagoverlaywrap">
-        <div id="userwrapstuff">
-        <div id="resetknap"></div>
-          <div id="Oimgwrap">
-            <div id="placeimg" style="background-image: url('${
-          /// referer til de specifikke id på objektet i dommen
-          searchGroup[this.id].img
-          }')"></div>
-          </div>
-          <div id="Obutwrap">
-            <div id="Jbutton"></div>
-          </div>
-          <div id="OpslagsInf">
-              <div id="OPImg" style="background-image: url('${
-          /// referer til de specifikke id på objektet i dommen
-          searchGroup[this.id].profilimg
-          }')"></div>
-              <div id="OPInf">
-                <div id="OPInftekstwrap">
-                  <h2>${searchGroup[this.id].name} ${searchGroup[this.id].alder}</h2>
-                  <p>${searchGroup[this.id].emne}</p>
-                </div>
-                <div id="OPInfpropertywrap">
-                  <p>${searchGroup[this.id].tid}</p>
-                  <p>${searchGroup[this.id].personer}</p>
-                </div>
-              </div>
-          </div>
-          <div id="MoreButwrap">
-            <div id="chatbut"></div>
-            <div id="profilbut"></div>
-          </div>
-        </div>
-      </div>
-        `;
-        /// find alle opslag i vores html
-        document.getElementById("alleopslag").innerHTML = htmlTemplatepopup;
+  //       console.log(this.id)
+  //       ///gør klar til at render vores informationer i objekterne til dommen
+  //       htmlTemplatepopup += `
+  //       <div id="klikkedopslagoverlaywrap">
+  //       <div id="userwrapstuff">
+  //       <div id="resetknap"></div>
+  //         <div id="Oimgwrap">
+  //           <div id="placeimg" style="background-image: url('${
+  //         /// referer til de specifikke id på objektet i dommen
+  //         searchGroup[this.id].img
+  //         }')"></div>
+  //         </div>
+  //         <div id="Obutwrap">
+  //           <div id="Jbutton"></div>
+  //         </div>
+  //         <div id="OpslagsInf">
+  //             <div id="OPImg" style="background-image: url('${
+  //         /// referer til de specifikke id på objektet i dommen
+  //         searchGroup[this.id].profilimg
+  //         }')"></div>
+  //             <div id="OPInf">
+  //               <div id="OPInftekstwrap">
+  //                 <h2>${searchGroup[this.id].name} ${searchGroup[this.id].alder}</h2>
+  //                 <p>${searchGroup[this.id].emne}</p>
+  //               </div>
+  //               <div id="OPInfpropertywrap">
+  //                 <p>${searchGroup[this.id].tid}</p>
+  //                 <p>${searchGroup[this.id].personer}</p>
+  //               </div>
+  //             </div>
+  //         </div>
+  //         <div id="MoreButwrap">
+  //           <div id="chatbut"></div>
+  //           <div id="profilbut"></div>
+  //         </div>
+  //       </div>
+  //     </div>
+  //       `;
+  //       /// find alle opslag i vores html
+  //       document.getElementById("alleopslag").innerHTML = htmlTemplatepopup;
 
-        /// lav en reset knap for at fjerne de objecter som er blevet renderet i html
-        document.getElementById("resetknap").addEventListener("click", function () {
-          /// render ingenting til dommet og derefter udskift med html pop, kald new filterservice for at køre classen igen.
-          htmlTemplatepopup = "";
-          document.getElementById("alleopslag").innerHTML = htmlTemplatepopup;
-          ///kald fiilterserive for at sparke gang i funktionerne forfra, så vi ikke har en tom side.
-          new filterService;
-        });
-      });
-    }
-  }
-}
+  //       /// lav en reset knap for at fjerne de objecter som er blevet renderet i html
+  //       document.getElementById("resetknap").addEventListener("click", function () {
+  //         /// render ingenting til dommet og derefter udskift med html pop, kald new filterservice for at køre classen igen.
+  //         htmlTemplatepopup = "";
+  //         document.getElementById("alleopslag").innerHTML = htmlTemplatepopup;
+  //         ///kald fiilterserive for at sparke gang i funktionerne forfra, så vi ikke har en tom side.
+  //         new filterService;
+  //       });
+  //     });
+  //   }
+  // }
+
 
 
 new filterService;
