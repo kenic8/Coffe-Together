@@ -3,6 +3,7 @@
   --dark-brown: #5E4747;
     --beige: #E7E2DD;
     --light-grey: #F8F8F8;
+    --dark-grey: #AAAAAA;
   }
 
 html {
@@ -102,7 +103,7 @@ p {
  
  #dropdowncafe {
    border-radius: 0;
-   border: 1px solid;
+   border: 1px solid var(--dark-grey);
  }
 
 /* ---------- page styling ---------- */
@@ -158,6 +159,10 @@ select {
   border: 1px solid;
 }
 
+#inputvalue {
+  border: 1px solid var(--dark-grey);
+}
+
 /* styling til beacons slettes senere!*/
 #forsideIndholdWrap {
   height: calc(100vh - 55px);
@@ -202,11 +207,11 @@ select {
 
 #alleopslag {
   height: max-content;
-  background: red;
+  background: var(--light-grey);
 }
 
 #emne {
-  border: 1px solid;
+  border: 1px solid var(--dark-grey);
   margin-bottom: 2%;
 }
 
@@ -215,7 +220,7 @@ select {
   height: 75px;
   display: flex;
   width: 100vw;
-  border-bottom: 1px solid;
+  border-bottom: 1px solid var(--dark-grey);
   margin-top: 2%;
 }
 
