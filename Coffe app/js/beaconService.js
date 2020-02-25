@@ -1,5 +1,6 @@
 import { firebaseDB } from "./firebase.js";
 import { docRef } from "./loginService.js";
+import {savedimgurl} from "./cameraservice.js";
 // let _selectedImgFile = "";
 
 // vars til opslag knapper på map
@@ -186,108 +187,97 @@ spanns.onclick = function() {
 //   sheet = "" + canvas.toDataURL('image/webp') + ""
 // };
 
-const canvas = document.querySelector("canvas");
-let imagePreview = document.querySelector("#imagePreview");
+// const canvas = document.querySelector("canvas");
+// let imagePreview = document.querySelector("#imagePreview");
 
-let profileimagePreview = document.querySelector("#profileimagePreview");
+// let profileimagePreview = document.querySelector("#profileimagePreview");
 
-let sheet;
-function profileimagePreviewFunk(dispic) {
-  profileimagePreview.style.background = "url(" + dispic + ")";
-  sheet = dispic;
-}
+// let sheet;
+// function profileimagePreviewFunk(dispic) {
+//   profileimagePreview.style.background = "url(" + dispic + ")";
+//   sheet = dispic;
+// }
 
-// CAMERA
-let htmlTemplate3 = "";
-window.tagbillede = () => {
-  htmlTemplate3 += `
-  <section id="camerawrap">
-  <video autoplay></video>
-  <div id="butwrapcamera">
-    <div id="stopcaneraknap">Luk</div>
-    <div id="tagbilledeknap">Tag billede</div>
-    <div id="accepterbilledeknap">Accepter billede</div>
-  </div>
-  <div id="darkbg"></div>
-</section>
-  `;
-  document.getElementById("camereholderDiv").innerHTML = htmlTemplate3;
+// // CAMERA
+// let htmlTemplate3 = "";
+// window.tagbillede = () => {
+//   htmlTemplate3 += `
+//   <section id="camerawrap">
+//   <video autoplay></video>
+//   <div id="butwrapcamera">
+//     <div id="stopcaneraknap">Luk</div>
+//     <div id="tagbilledeknap">Tag billede</div>
+//     <div id="accepterbilledeknap">Accepter billede</div>
+//   </div>
+//   <div id="darkbg"></div>
+// </section>
+//   `;
+//   document.getElementById("camereholderDiv").innerHTML = htmlTemplate3;
 
-  let video = document.querySelector("video");
-  var stopcaneraknap = document.getElementById("stopcaneraknap");
-  var tagbiledknap = document.getElementById("tagbilledeknap");
-  var accepterbilledeknap = document.getElementById("accepterbilledeknap");
-  stopcaneraknap.addEventListener("click", lukcamera);
-  tagbiledknap.addEventListener("click", tagbillede);
-  accepterbilledeknap.addEventListener("click", acceptbillede);
+//   let video = document.querySelector("video");
+//   var stopcaneraknap = document.getElementById("stopcaneraknap");
+//   var tagbiledknap = document.getElementById("tagbilledeknap");
+//   var accepterbilledeknap = document.getElementById("accepterbilledeknap");
+//   stopcaneraknap.addEventListener("click", lukcamera);
+//   tagbiledknap.addEventListener("click", tagbillede);
+//   accepterbilledeknap.addEventListener("click", acceptbillede);
 
-  let constraints = {
-    video: true
-  };
+//   let constraints = {
+//     video: true
+//   };
 
 
-  // let stream
-  // let tracks
-  let awasawa;
-  navigator.mediaDevices.getUserMedia(constraints).then(stream => {
-    awasawa = stream;
-    video.srcObject = awasawa;
-  });
+//   // let stream
+//   // let tracks
+//   let awasawa;
+//   navigator.mediaDevices.getUserMedia(constraints).then(stream => {
+//     awasawa = stream;
+//     video.srcObject = awasawa;
+//   });
 
-  var takepicmode
-  function tagbillede() {
-    console.log()
-    if (takepicmode != 1) {
-      video.pause();
-      canvas.width = video.videoWidth;
-      canvas.height = video.videoHeight;
-      canvas.getContext('2d').drawImage(video, 0, 0);
-      imagePreview.style.background = "url(" + canvas.toDataURL('image/webp') + ")";
-      // 
-      tagbiledknap.innerHTML = "Nyt billede?"
-      // 
-      takepicmode = 1;
-    } else {
-      video.play();
-      tagbiledknap.innerHTML = "Tag billede"
-      takepicmode = 2;
-    }
-  };
+//   var takepicmode
+//   function tagbillede() {
+//     console.log()
+//     if (takepicmode != 1) {
+//       video.pause();
+//       canvas.width = video.videoWidth;
+//       canvas.height = video.videoHeight;
+//       canvas.getContext('2d').drawImage(video, 0, 0);
+//       imagePreview.style.background = "url(" + canvas.toDataURL('image/webp') + ")";
+//       // 
+//       tagbiledknap.innerHTML = "Nyt billede?"
+//       // 
+//       takepicmode = 1;
+//     } else {
+//       video.play();
+//       tagbiledknap.innerHTML = "Tag billede"
+//       takepicmode = 2;
+//     }
+//   };
 
-  function acceptbillede() {
-    htmlTemplate3 = "";
-    document.getElementById("camereholderDiv").innerHTML = htmlTemplate3;
-    profileimagePreviewFunk(canvas.toDataURL("image/webp"));
-    awasawa.getTracks().forEach(function (track) {
-      track.stop();
-    });
-  }
-};
+//   function acceptbillede() {
+//     htmlTemplate3 = "";
+//     document.getElementById("camereholderDiv").innerHTML = htmlTemplate3;
+//     profileimagePreviewFunk(canvas.toDataURL("image/webp"));
+//     awasawa.getTracks().forEach(function (track) {
+//       track.stop();
+//     });
+//   }
+// };
 
 // ========== CREATE ==========
 
 window.createBeacon = () => {
-  docRef
-    .get()
-    .then(function (doc) {
-      let _beaconService = new beaconsService();
-      let cafeInput = document.querySelector("#dropdowncafe");
-      let name = doc.data().navn;
-      let alder = doc.data().alder;
-      let profilimg = doc.data().profilimg;
-      let emneInput = document.querySelector("#emne");
-      _beaconService.createBeacon(
-        cafeInput.value,
-        profilimg,
-        name,
-        alder,
-        emneInput.value,
-        sheet,
-        "personer",
-        "tid"
-      );
-    })
-    .catch(function (error) {
-      console.log("Error getting document:", error);
-    });
+  docRef.get().then(function(doc) {
+  let _beaconService = new beaconsService();
+  let cafeInput = document.querySelector("#dropdowncafe")
+  let name = doc.data().navn;
+  let alder = doc.data().alder;
+  let profilimg = doc.data().profilimg;
+  let emneInput = document.querySelector("#emne");
+  _beaconService.createBeacon(cafeInput.value, profilimg, name, alder, emneInput.value, savedimgurl, "personer", "tid");
+}).catch(function(error) {
+  console.log("Error getting document:", error);
+});
 };
+
