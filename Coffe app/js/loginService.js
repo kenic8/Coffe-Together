@@ -1,6 +1,7 @@
 "use strict";
 import {firebaseDB} from "./firebase.js";
 import {beaconsService} from "./beaconService.js";
+import {savedimgurl} from "./cameraservice.js";
 
 
 class opretbrugerservice {
@@ -97,110 +98,110 @@ function logout() {
 
 
 
-const canvas = document.querySelector('canvas');
-let imagePreview = document.querySelector('#imagePreview');
+// const canvas = document.querySelector('canvas');
+// let imagePreview = document.querySelector('#imagePreview');
 
-let profileimagePreview = document.querySelector('#profileimagePreview');
-
-
-// // /image--------------------------------------
-window.previewImage = (file) => {
-  if (file) {
-    let reader = new FileReader();
-    reader.onload = function (event) {
-      profileimagePreviewFunk(event.target.result);
-    };
-    reader.readAsDataURL(file);
-  }
-};
+// let profileimagePreview = document.querySelector('#profileimagePreview');
 
 
-var profilimgURL
-function profileimagePreviewFunk(dispic) {
-  profileimagePreview.style.background = "url("+dispic+")"
-  profilimgURL = dispic;
-}
+// // // /image--------------------------------------
+// window.previewImage = (file) => {
+//   if (file) {
+//     let reader = new FileReader();
+//     reader.onload = function (event) {
+//       profileimagePreviewFunk(event.target.result);
+//     };
+//     reader.readAsDataURL(file);
+//   }
+// };
 
 
-// CAMERA
-let htmlTemplate3 = '';
-window.tagbilledep = () => {
-  htmlTemplate3 += `
-  <section id="camerawrap">
-  <video autoplay></video>
-  <div id="butwrapcamera">
-    <div id="stopcaneraknap">Luk</div>
-    <div id="tagbilledeknap">tag billede</div>
-    <div id="accepterbilledeknap">accepter billede</div>
-  </div>
-  <div id="darkbg"></div>
-</section>
-  `;
-  document.getElementById("camereholderDivP").innerHTML = htmlTemplate3;
+// var profilimgURL
+// function profileimagePreviewFunk(dispic) {
+//   profileimagePreview.style.background = "url("+dispic+")"
+//   profilimgURL = dispic;
+// }
 
 
-  let video = document.querySelector('video');
-  var stopcaneraknap = document.getElementById("stopcaneraknap")
-  var tagbiledknap = document.getElementById("tagbilledeknap")
-  var accepterbilledeknap = document.getElementById("accepterbilledeknap")
-  stopcaneraknap.addEventListener("click", lukcamera);
-  tagbiledknap.addEventListener("click", tagbillede);
-  accepterbilledeknap.addEventListener("click", acceptbillede);
+// // CAMERA
+// let htmlTemplate3 = '';
+// window.tagbilledep = () => {
+//   htmlTemplate3 += `
+//   <section id="camerawrap">
+//   <video autoplay></video>
+//   <div id="butwrapcamera">
+//     <div id="stopcaneraknap">Luk</div>
+//     <div id="tagbilledeknap">tag billede</div>
+//     <div id="accepterbilledeknap">accepter billede</div>
+//   </div>
+//   <div id="darkbg"></div>
+// </section>
+//   `;
+//   document.getElementById("camereholderDivP").innerHTML = htmlTemplate3;
 
-let constraints = {
-  video: true
-};
 
-// let stream
-// let tracks
-let awasawa;
-navigator.mediaDevices.getUserMedia(constraints).
-then((stream) => {
-  awasawa = stream
-  video.srcObject = awasawa
+//   let video = document.querySelector('video');
+//   var stopcaneraknap = document.getElementById("stopcaneraknap")
+//   var tagbiledknap = document.getElementById("tagbilledeknap")
+//   var accepterbilledeknap = document.getElementById("accepterbilledeknap")
+//   stopcaneraknap.addEventListener("click", lukcamera);
+//   tagbiledknap.addEventListener("click", tagbillede);
+//   accepterbilledeknap.addEventListener("click", acceptbillede);
 
-})
+// let constraints = {
+//   video: true
+// };
 
-function lukcamera() {
-  htmlTemplate3 = '';
-  document.getElementById("camereholderDivP").innerHTML = htmlTemplate3;
-  awasawa.getTracks().forEach(function(track) {
-    track.stop();
-  });
-}
+// // let stream
+// // let tracks
+// let awasawa;
+// navigator.mediaDevices.getUserMedia(constraints).
+// then((stream) => {
+//   awasawa = stream
+//   video.srcObject = awasawa
 
-var takepicmode 
-function tagbillede() {
-  console.log()
-  if (takepicmode != 1) {
-  video.pause();
-  canvas.width = video.videoWidth;
-  canvas.height = video.videoHeight;
-  canvas.getContext('2d').drawImage(video, 0, 0);
-  imagePreview.style.background = "url(" + canvas.toDataURL('image/webp') + ")";
-  // 
-  tagbiledknap.innerHTML = "nyt bilede?"
-  tagbiledknap.style.background = "brown"
-    // 
-    takepicmode = 1;
-  } else {
-    video.play();
-    tagbiledknap.innerHTML = "tag billede"
-    tagbiledknap.style.background = "green"
-    takepicmode = 2;
-  }
+// })
 
-};
+// function lukcamera() {
+//   htmlTemplate3 = '';
+//   document.getElementById("camereholderDivP").innerHTML = htmlTemplate3;
+//   awasawa.getTracks().forEach(function(track) {
+//     track.stop();
+//   });
+// }
 
-function acceptbillede() {
-  htmlTemplate3 = '';
-  document.getElementById("camereholderDivP").innerHTML = htmlTemplate3;
-  profileimagePreviewFunk(canvas.toDataURL('image/webp'));
-  awasawa.getTracks().forEach(function(track) {
-    track.stop();
-  });
-}
-};
+// var takepicmode 
+// function tagbillede() {
+//   console.log()
+//   if (takepicmode != 1) {
+//   video.pause();
+//   canvas.width = video.videoWidth;
+//   canvas.height = video.videoHeight;
+//   canvas.getContext('2d').drawImage(video, 0, 0);
+//   imagePreview.style.background = "url(" + canvas.toDataURL('image/webp') + ")";
+//   // 
+//   tagbiledknap.innerHTML = "nyt bilede?"
+//   tagbiledknap.style.background = "brown"
+//     // 
+//     takepicmode = 1;
+//   } else {
+//     video.play();
+//     tagbiledknap.innerHTML = "tag billede"
+//     tagbiledknap.style.background = "green"
+//     takepicmode = 2;
+//   }
+
+// };
+
+// function acceptbillede() {
+//   htmlTemplate3 = '';
+//   document.getElementById("camereholderDivP").innerHTML = htmlTemplate3;
+//   profileimagePreviewFunk(canvas.toDataURL('image/webp'));
+//   awasawa.getTracks().forEach(function(track) {
+//     track.stop();
+//   });
+// }
+// };
 
 
 // ========== CREATE ==========
@@ -211,7 +212,7 @@ window.createbruger = () => {
   let alder = document.querySelector("#alder");
   let fkaffe = document.querySelector("#fkaffe");
   let Omig = document.querySelector("#Omig");
-  _brugerservice.createbruger(navn.value, alder.value, fkaffe.value, Omig.value, profilimgURL);
+  _brugerservice.createbruger(navn.value, alder.value, fkaffe.value, Omig.value, savedimgurl);
   userAuthenticated();
 };
 
