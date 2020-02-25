@@ -13,8 +13,14 @@ export default function klikbareOpslag(ActiveClassList, specificopslagdivs) {
             <div id="placeimg" style="background-image: url('${specificopslagdivs[this.id].img}')"></div>
           </div>
           <div id="Obutwrap">
-          <div id="Jbutton">Join!</div>
-          </div>
+          <button id="Jbutton">Join</button>
+          <div id="joiner" class="joinet">
+          <div class="join-content">
+          <span class="lukke">&times;</span>
+          <h2>Tillykke!</h2> <br>
+         <p> Du har nu joinet</p>
+        </div>
+      </div>
           <div id="OpslagsInf">
               <div id="OPImg" style="background-image: url('${specificopslagdivs[this.id].profilimg}')"></div>
               <div id="OPInf">
@@ -40,6 +46,24 @@ export default function klikbareOpslag(ActiveClassList, specificopslagdivs) {
             htmlTemplate2 = "";
             document.getElementById("opslagklikwrapwrap").innerHTML = htmlTemplate2;
           });
+                // Get the element by id -- joiner
+            let join = document.getElementById("joiner");
+
+                // Get the button that opens the join
+              let btn = document.getElementById("Jbutton");
+
+                // Get the <span> element that closes the join box
+              let spanns = document.getElementsByClassName("lukke")[0];
+
+                // When the user clicks the button, open the join box
+                btn.onclick = function() {
+                 join.style.display = "block";
+                }
+
+                // When the user clicks on <span> (x), close the box
+                spanns.onclick = function() {
+                  join.style.display = "none";
+                }
       });
     }
   }
