@@ -24,11 +24,11 @@
 
   <!-- <video autoplay style="display: none;"></video> -->
   <!-- canvas -->
+  <div id="opslagklikwrapwrap"></div>
   <canvas style="display:none;"></canvas>
   <div id="camereholderDiv"></div>
   <!-- pages -->
 
-  <div id="opslagklikwrapwrap"></div>
   <!-- home page -->
   <section id="home" class="page">
     <!-- body content -->
@@ -107,7 +107,7 @@
       <input type="text" id="alder" placeholder="Alder" required />
       <input type="text" id="fkaffe" placeholder="Farvorit kaffe" required />
       <input type="text" id="Omig" placeholder="Om mig" required />
-      <input type="file" id="img" accept="image/*" onchange="previewImage(this.files[0], 'imagePreview')">
+      <input type="file" id="img" accept="image/*" onchange="previewImage(this.files[0])">
       <img id="profileimagePreview" class="image-preview" />
       <button type="button" name="button" onclick="tagbillede()">
         Tag billede
@@ -132,6 +132,7 @@
 
   <!-- scipts  -->
   <script src="js/spa.js"></script>
+  <script type="module" src="js/cameraservice.js"></script>
   <script type="module" src="js/loginService.js"></script>
   <script type="module" src="js/map.js"></script>
   <script type="module" src="js/beaconService.js"></script>
