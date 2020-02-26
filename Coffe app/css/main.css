@@ -58,7 +58,7 @@ color: var(--dark-brown);
   left: 0;
   right: 0;
   border-top: 1px solid;
-  z-index: 999999999999999;
+  z-index: 999999999999999999999;
   background-color: white;
   display: flex;
   justify-content: space-between;
@@ -216,7 +216,7 @@ background: radial-gradient(circle, rgba(63,94,251,0) 0%, rgba(0,0,0,1) 100%);
 }
 
 /* OPSLAGSTING */
-.opslagwrap {
+.opslagwrap1 {
   height: 75px;
   display: flex;
   width: 100vw;
@@ -224,9 +224,22 @@ background: radial-gradient(circle, rgba(63,94,251,0) 0%, rgba(0,0,0,1) 100%);
   margin-top: 2%;
 }
 
-.opslagwrap h2, .opslagwrap p{
+.opslagwrap1 h2, .opslagwrap1 p{
   margin: 0;
 }
+
+.opslagwrap2 {
+  height: 75px;
+  display: flex;
+  width: 100vw;
+  border-bottom: 1px solid var(--dark-grey);
+  margin-top: 2%;
+}
+
+.opslagwrap2 h2, .opslagwrap2 p{
+  margin: 0;
+}
+
 
 #profilimg {
   width: 60px;
@@ -358,8 +371,8 @@ video {
 
 /* OLAY NÅR MAN TRYKKER PÅ OPSLAG */
 #opslagklikwrapwrap {
-  z-index: 99999999999999999;
-  position: absolute;
+  z-index: 999999999;
+  position: fixed;
 }
 
 #klikkedopslagoverlaywrap {
