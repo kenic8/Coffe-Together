@@ -1,5 +1,11 @@
 import { firebaseDB } from "./firebase.js";
 import { docRef } from "./loginService.js";
+<<<<<<< HEAD
+=======
+import {savedimgurl} from "./cameraservice.js";
+import klikbareOpslag from './klikbaropslagService.js';
+
+>>>>>>> master
 // let _selectedImgFile = "";
 
 // vars til opslag knapper på map
@@ -8,7 +14,7 @@ let ActiveClassList;
 
 export class beaconsService {
   constructor(value1) {
-    this.userRef = firebaseDB.collection("beacons").doc("" + value1 + "");
+    // this.userRef = firebaseDB.collection("beacons").doc("" + value1 + "");
     this.opslag = firebaseDB.collection("opslag");
     this.read(value1);
   }
@@ -18,52 +24,18 @@ export class beaconsService {
     // watch the database ref for changes
     this.opslag.onSnapshot(snapshotData => {
       let opslag = [];
+      // let userRef = this.userRef;
 
       snapshotData.forEach(doc => {
         const opslagS = doc.data();
         opslagS.id = doc.id;
         opslag.push(opslagS);
       });
-      this.appendBeacon(opslag, value1);
+      appendBeacon(opslag, value1);
     });
   }
 
   // append users to the DOM via template string syntax
-
-  appendBeacon(opslagS, value1) {
-    this.userRef.get().then(function (doc) {
-      // reset array
-      specificopslagdivs = [];
-      // if (doc.id == ""+value1+"") {  SLET?
-      let htmlTemplate = "";
-      for (let opslag of opslagS) {
-        // hvus cafen fra databasen passer med cafen for den marker der bliver trykket i map/js
-        if (opslag.cafe == value1) {
-          htmlTemplate += `
-        <div class="opslagwrap">
-        <div id="profilimg" style="background-image: url('${opslag.profilimg}')"></div>
-        <div id="tekstogshit">
-        <h2>${opslag.name}    ${opslag.alder}</h2>
-        <p>${opslag.emne}</p>
-        </div>
-        <div id="infoogshit">
-        <p><img id="personer" src="images/account.png">2</p>
-        <p><img id="tid" src="images/clock.png">tid</p>
-        </div>
-        </div>
-        `;
-          // lav array med opslag der passer den marker der er trykket på
-          specificopslagdivs.push(opslag);
-        }
-      }
-      document.getElementById("opslagwrapwrap").innerHTML = htmlTemplate;
-      ActiveClassList = document.getElementsByClassName("opslagwrap");
-
-      // klikbare opslag function
-      klikbareOpslag(opslagS);
-    });
-  }
-
   /// create a beaconpost object
 
   createBeacon(cafe, profilimg, name, alder, emne, img, personer, tid) {
@@ -81,50 +53,29 @@ export class beaconsService {
   }
 }
 
-// popup når man klikker på et opslag
-
-function klikbareOpslag() {
-  let htmlTemplate2 = "";
-  for (var i = 0; i < ActiveClassList.length; i++) {
-    ActiveClassList[i].id = i;
-    ActiveClassList[i].addEventListener("click", function () {
-      // console.log(specificopslagdivs[this.id])
-      htmlTemplate2 += `
-      <div id="klikkedopslagoverlaywrap">
-      <div id="userwrapstuff">
-      <div id="resetknap"></div>
-        <div id="Oimgwrap">
-          <div id="placeimg" style="background-image: url('${
-        specificopslagdivs[this.id].img
-        }')"></div>
-        </div>
-        <div id="Obutwrap">
-        <div id="Jbutton">Join!</div>
-        </div>
-        <div id="OpslagsInf">
-            <div id="OPImg" style="background-image: url('${
-        specificopslagdivs[this.id].profilimg
-        }')"></div>
-            <div id="OPInf">
-              <div id="OPInftekstwrap">
-                <h2>${specificopslagdivs[this.id].name}    ${
-        specificopslagdivs[this.id].alder
-        }</h2>
-                <p>${specificopslagdivs[this.id].emne}</p>
-              </div>
-              <div id="OPInfpropertywrap">
-                <p><img id="tid1" src="images/clock.png">${specificopslagdivs[this.id].tid}</p>
-                <p><img id="personer1" src="images/account.png">${specificopslagdivs[this.id].personer}</p>
-              </div>
-            </div>
-        </div>
-        <div id="MoreButwrap">
-          <div id="chatbut"><img src="images/chat.png">Gå til chat</div>
-          <div id="profilbut"><img src="images/account.png">Gå til profil</div>
-        </div>
+function appendBeacon(opslagS, value1) {
+  // userRef.get().then(function (doc) {
+    // reset array
+    specificopslagdivs = [];
+    // if (doc.id == ""+value1+"") {  SLET?
+    let htmlTemplate = "";
+    for (let opslag of opslagS) {
+      // hvus cafen fra databasen passer med cafen for den marker der bliver trykket i map/js
+      if (opslag.cafe == value1) {
+        htmlTemplate += `
+      <div class="opslagwrap">
+      <div id="profilimg" style="background-image: url('${opslag.profilimg}')"></div>
+      <div id="tekstogshit">
+      <h2>${opslag.name}    ${opslag.alder}</h2>
+      <p>${opslag.emne}</p>
       </div>
-    </div>
+      <div id="infoogshit">
+      <p><img id="personer" src="images/account.png">2</p>
+      <p><img id="tid" src="images/clock.png">tid</p>
+      </div>
+      </div>
       `;
+<<<<<<< HEAD
       document.getElementById("opslagklikwrapwrap").innerHTML = htmlTemplate2;
       document
         .getElementById("resetknap")
@@ -242,6 +193,23 @@ window.tagbillede = () => {
     });
   }
 };
+=======
+        // lav array med opslag der passer den marker der er trykket på
+        specificopslagdivs.push(opslag);
+
+        // console.log(specificopslagdivs)
+      }
+    }
+    document.getElementById("opslagwrapwrap").innerHTML = htmlTemplate;
+    ActiveClassList = document.getElementsByClassName("opslagwrap");
+
+    // klikbare opslag function
+    klikbareOpslag(ActiveClassList, specificopslagdivs);
+  // });
+}
+
+// popup når man klikker på et opslag
+>>>>>>> master
 
 // ========== CREATE ==========
 

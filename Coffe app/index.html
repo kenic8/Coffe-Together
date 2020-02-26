@@ -9,6 +9,8 @@
   <meta name="author" content="Jesson, Carl, Kevin, Victoria" />
   <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
   <link rel="stylesheet" href="css/main.css" />
+  <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Galada&display=swap" rel="stylesheet">
 </head>
 
 <body onhashchange="pageChange()">
@@ -22,6 +24,7 @@
 
   <!-- <video autoplay style="display: none;"></video> -->
   <!-- canvas -->
+  <div id="opslagklikwrapwrap"></div>
   <canvas style="display:none;"></canvas>
   <div id="camereholderDiv"></div>
   <!-- pages -->
@@ -29,8 +32,6 @@
   <!-- home page -->
   <section id="home" class="page">
     <!-- body content -->
-    <div id="opslagklikwrapwrap"></div>
-
 
     <div id="forsideIndholdWrap">
       <div id="mapwrap">
@@ -43,7 +44,10 @@
             <p>TILFØJ OPSLAG</p>
           </a>
         </div>
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
         <div id="opslagwrapwrap">
         </div>
       </div>
@@ -104,13 +108,13 @@
   <!-- opret bruger page-->
   <section id="opretBruger" class="page">
     <div id="butbubtu">Log ud</div>
-    <form>
+    <form class="formstyle">
       <h2>Opret bruger</h2>
       <input type="text" id="name" placeholder="Name" required />
       <input type="text" id="alder" placeholder="Alder" required />
       <input type="text" id="fkaffe" placeholder="Farvorit kaffe" required />
       <input type="text" id="Omig" placeholder="Om mig" required />
-      <input type="file" id="img" accept="image/*" onchange="previewImage(this.files[0], 'imagePreview')">
+      <input type="file" id="img" accept="image/*" onchange="previewImage(this.files[0])">
       <img id="profileimagePreview" class="image-preview" />
       <button type="button" name="button" onclick="tagbillede()">
         Tag billede
@@ -142,16 +146,15 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDV4i1136Altv5jZLueDEt5gMTHO5dyU6o" async defer>
   </script>
 
-
   <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-app.js"></script>
   <!-- Add Firebase products that you want to use -->
   <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-firestore.js"></script>
   <script src="https://www.gstatic.com/firebasejs/ui/4.4.0/firebase-ui-auth__da.js"></script>
 
-
   <!-- scipts  -->
   <script src="js/spa.js"></script>
+  <script type="module" src="js/cameraservice.js"></script>
   <script type="module" src="js/loginService.js"></script>
   <script type="module" src="js/map.js"></script>
   <script type="module" src="js/beaconService.js"></script>
