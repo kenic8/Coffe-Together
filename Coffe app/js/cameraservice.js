@@ -7,12 +7,13 @@ export let savedimgurl;
 
 let profileimagePreview = document.querySelector('#profileimagePreview');
 
-
-let sheet;
+// profileimagePreviewFunk(dispic) {
+// let sheet;
 function profileimagePreviewFunk(dispic) {
   profileimagePreview.style.background = "url("+dispic+")"
-  sheet = dispic;
+  // sheet = dispic;
   savedimgurl = dispic;
+  console.log(dispic)
 }
 
 
@@ -98,3 +99,14 @@ function acceptbillede() {
 }
 };
 
+
+window.previewImage = (file) => {
+  const reader = new FileReader();
+  reader.addEventListener("load", function () {
+    profileimagePreviewFunk(reader.result)
+
+  }, false);
+    if (file) {
+      reader.readAsDataURL(file);
+    }
+  }

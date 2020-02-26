@@ -53,9 +53,9 @@ firebase.auth().onAuthStateChanged(function(brugere) {
     docRef = firebaseDB.collection("bruger").doc(thisuserId);
     docRef.get().then(function(doc) {
     if (doc.exists) {
-      showPage("home");
+      document.location.href = "#home"
     } else {
-      showPage("login");
+      document.location.href = "#opretBruger"
       document.getElementById("opretBruger").style.display = "inherit"
       document.getElementById("firebaseui-auth-container").style.display = "none"
     }

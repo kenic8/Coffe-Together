@@ -1,7 +1,7 @@
 import { firebaseDB } from "./firebase.js";
 import { docRef } from "./loginService.js";
 import {savedimgurl} from "./cameraservice.js";
-import klikbareOpslag from './klikbaropslagService.js';
+import filterBeacon from './klikbaropslagService.js';
 
 // let _selectedImgFile = "";
 
@@ -28,11 +28,13 @@ export class beaconsService {
         opslagS.id = doc.id;
         opslag.push(opslagS);
       });
-      appendBeacon(opslag, value1);
+
+      var whatpage = 1;
+      filterBeacon(opslag, value1, whatpage);
+      // appendBeacon(opslag, value1);
     });
   }
 
-  // append users to the DOM via template string syntax
   /// create a beaconpost object
 
   createBeacon(cafe, profilimg, name, alder, emne, img, personer, tid) {
@@ -49,44 +51,6 @@ export class beaconsService {
     this.opslag.add(newOpslag);
   }
 }
-
-function appendBeacon(opslagS, value1) {
-  // userRef.get().then(function (doc) {
-    // reset array
-    specificopslagdivs = [];
-    // if (doc.id == ""+value1+"") {  SLET?
-    let htmlTemplate = "";
-    for (let opslag of opslagS) {
-      // hvus cafen fra databasen passer med cafen for den marker der bliver trykket i map/js
-      if (opslag.cafe == value1) {
-        htmlTemplate += `
-      <div class="opslagwrap">
-      <div id="profilimg" style="background-image: url('${opslag.profilimg}')"></div>
-      <div id="tekstogshit">
-      <h2>${opslag.name}    ${opslag.alder}</h2>
-      <p>${opslag.emne}</p>
-      </div>
-      <div id="infoogshit">
-      <p><img id="personer" src="images/account.png">2</p>
-      <p><img id="tid" src="images/clock.png">tid</p>
-      </div>
-      </div>
-      `;
-        // lav array med opslag der passer den marker der er trykket på
-        specificopslagdivs.push(opslag);
-
-        // console.log(specificopslagdivs)
-      }
-    }
-    document.getElementById("opslagwrapwrap").innerHTML = htmlTemplate;
-    ActiveClassList = document.getElementsByClassName("opslagwrap");
-
-    // klikbare opslag function
-    klikbareOpslag(ActiveClassList, specificopslagdivs);
-  // });
-}
-
-// popup når man klikker på et opslag
 
 // ========== CREATE ==========
 

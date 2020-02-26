@@ -13,10 +13,14 @@ function showPage(pageId) {
   setActiveTab(pageId);
 }
 
+let pages;
+let page;
+// export let was;
+// console.log(page.getAttribute("href"))
 // sets active tabbar/ menu item
 function setActiveTab(pageId) {
-  let pages = document.querySelectorAll(".tabbar a");
-  for (let page of pages) {
+  pages = document.querySelectorAll(".tabbar a");
+  for (page of pages) {
     if (`#${pageId}` === page.getAttribute("href")) {
       page.classList.add("active");
     } else {
@@ -24,6 +28,7 @@ function setActiveTab(pageId) {
     }
   }
 }
+
 
 // navigate to a new view/page by changing href
 // function navigateTo(pageId) {

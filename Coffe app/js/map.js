@@ -52,6 +52,8 @@ fetch("json/beaconspos.json")
         map: map,
         icon: {
           url: "coffe.png",
+          labelOrigin: new google.maps.Point(40, 0),
+          anchor: new google.maps.Point(20, 20),
           labelOrigin: new google.maps.Point(40, 0)
         }
       });
