@@ -15,22 +15,69 @@
         "cafe": "streetcoffee",
         "coord": [56.157590, 10.201630]
       },
-
       {
-        "cafe": "baresso2",
-        "coord": [56.150630, 10.207800]
-        },
-        {
-        "cafe": "cafecomein2",
-        "coord": [56.157660, 10.208330]
-        },
-        {
-          "cafe": "kjærskaffebar2",
-          "coord": [56.159470, 10.208780]
-          },
-          {
-            "cafe": "streetcoffee2",
-            "coord": [56.157590, 10.204630]
-          }
+        "cafe": "Faust",
+        "coord": [56.157237, 10.209864]
+      },
+      {
+        "cafe": "Café Gemmested",
+        "coord": [56.160603, 10.204264]
+      },
+      {
+        "cafe": "Café Gaya",
+        "coord": [56.157586, 10.201432]
+      },
+      {
+        "cafe": "MellemFolk",
+        "coord": [56.159998, 10.212800]
+      },
+      {
+        "cafe": "GLAD!",
+        "coord": [56.146937, 10.194896]
+      },
+      {
+        "cafe": "Folkeven",
+        "coord": [56.156040, 10.196853]
+      },
+      {
+        "cafe": "Bådcafé",
+        "coord": [56.138592, 10.215770]
+      },
+      {
+        "cafe": "Café Drudenfuss",
+        "coord": [56.158955, 10.209674]
+      },
+      {
+        "cafe": "La Cabra Coffee",
+        "coord": [56.159278, 10.210360]
+      },
+      {
+        "cafe": "Café Ziggy",
+        "coord": [56.173931, 10.217200]
+      },
+      {
+        "cafe": "Landcafé",
+        "coord": [56.159336, 10.209781]
+      },
+      {
+        "cafe": "Café Stiften",
+        "coord": [56.150215, 10.203433]
+      },
+      {
+        "cafe": "Hos Sofies Forældre",
+        "coord": [56.154177, 10.203406]
+      },
+      {
+        "cafe": "Café Carl",
+        "coord": [56.154607, 10.192688]
+      },
+      {
+        "cafe": "Café Kunsthal",
+        "coord": [56.154945, 10.201912]
+      },
+      {
+        "cafe": "Aarhus Street Food",
+        "coord": [56.151642, 10.209489]
+      }
   ]
     
