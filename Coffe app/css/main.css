@@ -28,13 +28,13 @@ h1 {
   text-transform: uppercase;
 }
 
-h3 {
-  font-weight: 400;
+h2 {
+  font-weight: 300;
   letter-spacing: 2px;
 }
 
-h2 {
-  font-weight: 300;
+h3 {
+  font-weight: 400;
   letter-spacing: 2px;
 }
 
@@ -103,6 +103,7 @@ background-color: var(--beige);
  #dropdowncafe {
    border-radius: 0;
    border: 1px solid var(--dark-grey);
+   margin-top: 15%;
  }
 
 /* ---------- page styling ---------- */
@@ -211,7 +212,6 @@ background: radial-gradient(circle, rgba(63,94,251,0) 0%, rgba(0,0,0,1) 100%);
 
 #emne {
   border: 1px solid var(--dark-grey);
-  margin-bottom: 2%;
 }
 
 /* OPSLAGSTING */
@@ -358,13 +358,16 @@ video {
 #imagePreview {
   height: 30vw;
   width: 90vw;
-  background-color: blue;
+  background-color: var(--light-grey);
+  border: 1px solid var(--dark-grey);
+  margin: auto;
 }
 
 #profileimagePreview {
   height: 30vw;
   width: 90vw;
-  background-color: blue;
+  background-color: var(--beige);
+  border: 1px solid var(--light-grey);
   margin-top: 5%;
 }
 
@@ -578,7 +581,10 @@ form button {
   border-radius: 20px;
   color: #ffffff !important;
   background-color: var(--dark-brown);
-  width: 50%;
+}
+
+.formstyle {
+  margin-bottom: 20%;
 }
 
 input,
@@ -604,6 +610,7 @@ select {
 #firebaseui-auth-container {
 margin-left: 2%;
 margin-right: 2%;
+margin-bottom: 40%;
 }
 
 .firebaseui-title {

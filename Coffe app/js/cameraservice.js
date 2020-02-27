@@ -25,8 +25,8 @@ window.tagbillede = () => {
   <video autoplay></video>
   <div id="butwrapcamera">
     <div id="stopcaneraknap">Luk</div>
-    <div id="tagbilledeknap">tag billede</div>
-    <div id="accepterbilledeknap">accepter billede</div>
+    <div id="tagbilledeknap">Tag billede</div>
+    <div id="accepterbilledeknap">Accepter billede</div>
   </div>
   <div id="darkbg"></div>
 </section>
@@ -76,14 +76,12 @@ function tagbillede() {
   imagePreview[i].style.background = "url(" + canvas.toDataURL('image/webp') + ")";
   }
   // 
-  tagbiledknap.innerHTML = "nyt bilede?"
-  tagbiledknap.style.background = "brown"
+  tagbiledknap.innerHTML = "Nyt billede?"
     // 
     takepicmode = 1;
   } else {
     video.play();
-    tagbiledknap.innerHTML = "tag billede"
-    tagbiledknap.style.background = "green"
+    tagbiledknap.innerHTML = "Tag billede"
     takepicmode = 2;
   }
 
