@@ -1,112 +1,108 @@
-const canvas = document.querySelector('canvas');
+const canvas = document.querySelector("canvas");
 let imagePreview = [];
-imagePreview = document.getElementsByClassName("image-preview")
+imagePreview = document.getElementsByClassName("image-preview");
 // for (i = 0; i<)
 // console.log(imagePreview)
-export let savedimgurl;
+// export let savedimgurl;
+// let profileimagePreview = document.querySelector('#profileimagePreview');
+// let video = document.querySelector('video');
 
-let profileimagePreview = document.querySelector('#profileimagePreview');
+class CameraServiceClass {
+  constructor() {
+    this.takepicmode;
+  }
 
-// profileimagePreviewFunk(dispic) {
-// let sheet;
-function profileimagePreviewFunk(dispic) {
-  profileimagePreview.style.background = "url("+dispic+")"
-  // sheet = dispic;
-  savedimgurl = dispic;
-  console.log(dispic)
-}
-
-
-// CAMERA
-let htmlTemplate3 = '';
-window.tagbillede = () => {
-  htmlTemplate3 += `
+  // CAMERA
+  Opencamera() {
+    this.htmlTemplate3 = "";
+    this.htmlTemplate3 += `
   <section id="camerawrap">
   <video autoplay></video>
   <div id="butwrapcamera">
-    <div id="stopcaneraknap">Luk</div>
-    <div id="tagbilledeknap">tag billede</div>
-    <div id="accepterbilledeknap">accepter billede</div>
+    <div id="stopcaneraknap" onclick="lukcamera()">Luk</div>
+    <div id="tagbilledeknap" onclick="tagbillede()">tag billede</div>
+    <div id="accepterbilledeknap" onclick="acceptbillede()">accepter billede</div>
   </div>
   <div id="darkbg"></div>
 </section>
   `;
-  document.getElementById("camereholderDiv").innerHTML = htmlTemplate3;
+    document.getElementById("camereholderDiv").innerHTML = this.htmlTemplate3;
+    this.video = document.querySelector("video");
+    this.tagbiledknap = document.querySelector("#tagbilledeknap");
 
+    let constraints = {
+      video: true
+    };
 
-  let video = document.querySelector('video');
-  var stopcaneraknap = document.getElementById("stopcaneraknap")
-  var tagbiledknap = document.getElementById("tagbilledeknap")
-  var accepterbilledeknap = document.getElementById("accepterbilledeknap")
-  stopcaneraknap.addEventListener("click", lukcamera);
-  tagbiledknap.addEventListener("click", tagbillede);
-  accepterbilledeknap.addEventListener("click", acceptbillede);
-
-let constraints = {
-  video: true
-};
-
-// let stream
-// let tracks
-let awasawa;
-navigator.mediaDevices.getUserMedia(constraints).
-then((stream) => {
-  awasawa = stream
-  video.srcObject = awasawa
-
-})
-
-function lukcamera() {
-  htmlTemplate3 = '';
-  document.getElementById("camereholderDiv").innerHTML = htmlTemplate3;
-  awasawa.getTracks().forEach(function(track) {
-    track.stop();
-  });
-}
-
-var takepicmode 
-function tagbillede() {
-  console.log()
-  if (takepicmode != 1) {
-  video.pause();
-  canvas.width = video.videoWidth;
-  canvas.height = video.videoHeight;
-  canvas.getContext('2d').drawImage(video, 0, 0);
-  for (let i = 0; i < imagePreview.length; i++) {
-  imagePreview[i].style.background = "url(" + canvas.toDataURL('image/webp') + ")";
-  }
-  // 
-  tagbiledknap.innerHTML = "nyt bilede?"
-  tagbiledknap.style.background = "brown"
-    // 
-    takepicmode = 1;
-  } else {
-    video.play();
-    tagbiledknap.innerHTML = "tag billede"
-    tagbiledknap.style.background = "green"
-    takepicmode = 2;
+    // let stream
+    // let tracks
+    this.videoStream;
+    navigator.mediaDevices.getUserMedia(constraints).then(stream => {
+      this.videoStream = stream;
+      this.video.srcObject = this.videoStream;
+    });
   }
 
-};
+  lukcamera() {
+    this.htmlTemplate3 = "";
+    document.getElementById("camereholderDiv").innerHTML = this.htmlTemplate3;
+    this.videoStream.getTracks().forEach(function(track) {
+      track.stop();
+    });
+  }
 
-function acceptbillede() {
-  htmlTemplate3 = '';
-  document.getElementById("camereholderDiv").innerHTML = htmlTemplate3;
-  profileimagePreviewFunk(canvas.toDataURL('image/webp'));
-  awasawa.getTracks().forEach(function(track) {
-    track.stop();
-  });
-}
-};
+  // var takepicmode
+  tagbillede() {
+    if (this.takepicmode != 1) {
+      this.video.pause();
+      canvas.width = this.video.videoWidth;
+      canvas.height = this.video.videoHeight;
+      canvas.getContext("2d").drawImage(this.video, 0, 0);
+      for (let i = 0; i < imagePreview.length; i++) {
+        imagePreview[0].style.background =
+          "url(" + canvas.toDataURL("image/webp") + ")";
+      }
+      //
+      this.tagbiledknap.innerHTML = "nyt bilede?";
+      this.tagbiledknap.style.background = "brown";
+      //
+      this.takepicmode = 1;
+    } else {
+      this.video.play();
+      this.tagbiledknap.innerHTML = "tag billede";
+      this.tagbiledknap.style.background = "green";
+      this.takepicmode = 2;
+    }
+  }
 
+  acceptbillede() {
+    this.htmlTemplate3 = "";
+    document.getElementById("camereholderDiv").innerHTML = this.htmlTemplate3;
+    this.profileimagePreviewFunk(canvas.toDataURL("image/webp"));
+    this.videoStream.getTracks().forEach(function(track) {
+      track.stop();
+    });
+  }
 
-window.previewImage = (file) => {
-  const reader = new FileReader();
-  reader.addEventListener("load", function () {
-    profileimagePreviewFunk(reader.result)
-
-  }, false);
+  uploadFileImg(file) {
+    let reader = new FileReader();
+    reader.onload = function() {
+      savedimgurl = reader.result;
+    };
     if (file) {
       reader.readAsDataURL(file);
     }
+    this.profileimagePreviewFunk(savedimgurl);
   }
+
+  profileimagePreviewFunk(dispic) {
+    savedimgurl = dispic;
+    for (let i = 0; i < imagePreview.length; i++) {
+      imagePreview[i].style.background = "url(" + dispic + ")";
+    }
+  }
+}
+
+export let savedimgurl;
+const CameraServiceClass2 = new CameraServiceClass();
+export default CameraServiceClass2;

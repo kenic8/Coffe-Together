@@ -1,36 +1,51 @@
 [
-    {
+  {
     "cafe": "baresso",
-    "coord": [56.155630, 10.207800]
-    },
-    {
+    "coord": [56.15563, 10.2078],
+    "adresse": " ugler i mosen 21",
+    "billedecafe": "https://migogaalborg.dk/wp-content/uploads/2018/01/Caf%C3%A9-Peace-800x480.jpg"
+  },
+  {
     "cafe": "cafecomein",
-    "coord": [56.157660, 10.202330]
-    },
-    {
-      "cafe": "kjærskaffebar",
-      "coord": [56.152470, 10.208780]
-      },
-      {
-        "cafe": "streetcoffee",
-        "coord": [56.157590, 10.201630]
-      },
+    "coord": [56.15766, 10.20233],
+    "adresse": " ugler i mosen 22",
+    "billedecafe": "https://migogaalborg.dk/wp-content/uploads/2018/01/Caf%C3%A9-Peace-800x480.jpg"
+  },
+  {
+    "cafe": "kjærskaffebar",
+    "coord": [56.15247, 10.20878],
+    "adresse": " ugler i mosen 23",
+    "billedecafe": "https://migogaalborg.dk/wp-content/uploads/2018/01/Caf%C3%A9-Peace-800x480.jpg"
+  },
+  {
+    "cafe": "streetcoffee",
+    "coord": [56.15759, 10.20163],
+    "adresse": " ugler i mosen 24",
+    "billedecafe": "https://migogaalborg.dk/wp-content/uploads/2018/01/Caf%C3%A9-Peace-800x480.jpg"
+  },
 
-      {
-        "cafe": "baresso2",
-        "coord": [56.150630, 10.207800]
-        },
-        {
-        "cafe": "cafecomein2",
-        "coord": [56.157660, 10.208330]
-        },
-        {
-          "cafe": "kjærskaffebar2",
-          "coord": [56.159470, 10.208780]
-          },
-          {
-            "cafe": "streetcoffee2",
-            "coord": [56.157590, 10.204630]
-          }
-  ]
-    
+  {
+    "cafe": "baresso2",
+    "coord": [56.15063, 10.2078],
+    "adresse": " ugler i mosen 24",
+    "billedecafe": "https://migogaalborg.dk/wp-content/uploads/2018/01/Caf%C3%A9-Peace-800x480.jpg"
+  },
+  {
+    "cafe": "cafecomein2",
+    "coord": [56.15766, 10.20833],
+    "adresse": " ugler i mosen 22",
+    "billedecafe": "https://migogaalborg.dk/wp-content/uploads/2018/01/Caf%C3%A9-Peace-800x480.jpg"
+  },
+  {
+    "cafe": "kjærskaffebar2",
+    "coord": [56.15947, 10.20878],
+    "adresse": " ugler i mosen 22",
+    "billedecafe": "https://migogaalborg.dk/wp-content/uploads/2018/01/Caf%C3%A9-Peace-800x480.jpg"
+  },
+  {
+    "cafe": "streetcoffee2",
+    "coord": [56.15759, 10.20463],
+    "adresse": " ugler i mosen 22",
+    "billedecafe": "https://migogaalborg.dk/wp-content/uploads/2018/01/Caf%C3%A9-Peace-800x480.jpg"
+  }
+]
