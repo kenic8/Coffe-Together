@@ -219,6 +219,36 @@ select {
   margin-bottom: 2%;
 }
 
+<<<<<<< HEAD
+=======
+/* OPSLAGSTING */
+.opslagwrap1 {
+  height: 75px;
+  display: flex;
+  width: 100vw;
+  border-bottom: 1px solid var(--dark-grey);
+  margin-top: 2%;
+}
+
+.opslagwrap1 h2,
+.opslagwrap1 p {
+  margin: 0;
+}
+
+.opslagwrap2 {
+  height: 75px;
+  display: flex;
+  width: 100vw;
+  border-bottom: 1px solid var(--dark-grey);
+  margin-top: 2%;
+}
+
+.opslagwrap2 h2,
+.opslagwrap2 p {
+  margin: 0;
+}
+
+>>>>>>> master
 #profilimg {
   width: 60px;
   height: 60px;
@@ -710,6 +740,7 @@ select {
   z-index: 999999;
 }
 
+<<<<<<< HEAD
 /* billeder til opslag ooooooog tekst til opslag*/
 #wrapperimg {
   position: relative;
@@ -759,3 +790,10 @@ select {
 .opslagwrap2 p {
   margin: 0;
 }
+=======
+/* billeder til opslag*/
+#wrapperimg {
+  width: 100%;
+  height: 150%;
+}
+>>>>>>> master

@@ -20,7 +20,11 @@ export default class mapPage {
         <div id="imgwrap">
           </div>
           <a href="#create">
+<<<<<<< HEAD
           <img  id="opslagikon"alt="ikonilføj" src="./images/tilføjopslagikon.png"
+=======
+          <img alt="ikonilføj" src="./images/tilføjopslagikon.png"
+>>>>>>> master
           width=70" height="70">
        </a>
           <div id="opslagwrapwrap">
