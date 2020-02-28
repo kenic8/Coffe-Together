@@ -206,7 +206,7 @@ select {
   position: relative;
   z-index: 99999999;
   height: 15%;
-  background-color: #5e4747;
+  background: green;
 }
 
 #alleopslag {
@@ -217,6 +217,33 @@ select {
 #emne {
   border: 1px solid var(--dark-grey);
   margin-bottom: 2%;
+}
+
+/* OPSLAGSTING */
+.opslagwrap1 {
+  height: 75px;
+  display: flex;
+  width: 100vw;
+  border-bottom: 1px solid var(--dark-grey);
+  margin-top: 2%;
+}
+
+.opslagwrap1 h2,
+.opslagwrap1 p {
+  margin: 0;
+}
+
+.opslagwrap2 {
+  height: 75px;
+  display: flex;
+  width: 100vw;
+  border-bottom: 1px solid var(--dark-grey);
+  margin-top: 2%;
+}
+
+.opslagwrap2 h2,
+.opslagwrap2 p {
+  margin: 0;
 }
 
 #profilimg {
@@ -662,7 +689,7 @@ select {
 .joinet {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
-  z-index: 9999; /* Sit on top */
+  z-index: 9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999; /* Sit on top */
   padding-top: 100px; /* Location of the box */
   left: 0;
   top: 0;
@@ -710,52 +737,8 @@ select {
   z-index: 999999;
 }
 
-/* billeder til opslag ooooooog tekst til opslag*/
+/* billeder til opslag*/
 #wrapperimg {
-  position: relative;
-  z-index: 1;
-  margin-bottom: 20%;
   width: 100%;
   height: 150%;
-}
-
-#opslagikon {
-  transform: translateX(30vw);
-  position: absolute;
-  z-index: 99999999;
-}
-
-#adresesetag {
-  margin-top: 0;
-}
-
-/* OPSLAGSTING */
-.opslagwrap1 {
-  height: 75px;
-  display: flex;
-  width: 100vw;
-  border-bottom: 1px solid var(--dark-grey);
-  margin-top: 2%;
-}
-
-#opslagwrapwrap {
-  margin-top: 40%;
-}
-
-.opslagwrap1 h2,
-.opslagwrap1 p {
-  margin: 0;
-}
-
-.opslagwrap2 {
-  height: 75px;
-  display: flex;
-  width: 100vw;
-  border-bottom: 1px solid var(--dark-grey);
-  margin-top: 2%;
-}
-
-.opslagwrap2 h2,
-.opslagwrap2 p {
-  margin: 0;
 }

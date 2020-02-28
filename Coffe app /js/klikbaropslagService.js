@@ -60,7 +60,7 @@ function showopslag(i, beacons, whatpage) {
   <p>${beacons[i].emne}</p>
   </div>
   <div id="infoogshit">
-  <p><img id="personer" src="images/account.png"> ${beacons[i].personer}</p>
+  <p><img id="personer" src="images/account.png">2</p>
   <p><img id="tid" src="images/clock.png">tid</p>
   </div>
   </div>
@@ -132,10 +132,9 @@ function klikbareOpslag(ActiveClassList, specificopslagdivs) {
   }
 }
 function jsonmarkers(i) {
-  document.getElementById("imgwrap").innerHTML = `
-  <h2 id="adresesetag">${adressejson[i].cafe}</h2>
-  <p id="adresesetag">${adressejson[i].adresse}</p>
-  <img id="wrapperimg"src="${adressejson[i].billedecafe}">
+  document.getElementById(
+    "imgwrap"
+  ).innerHTML = `${adressejson[i].adresse},<img id="wrapperimg"src="${adressejson[i].billedecafe}">
   `;
 }
 
@@ -162,8 +161,6 @@ function getopslaginf(savedbruger) {
   let alder = savedbruger.alder;
   let profilimg = savedbruger.profilimg;
   let emneInput = document.querySelector("#emne");
-  let personer = 1;
-
   createBeacon(
     cafeInput.value,
     profilimg,
@@ -171,7 +168,7 @@ function getopslaginf(savedbruger) {
     alder,
     emneInput.value,
     savedimgurl,
-    personer,
+    "personer",
     "tid"
   );
 }
