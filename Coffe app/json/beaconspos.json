@@ -1,83 +1,51 @@
 [
-    {
+  {
     "cafe": "baresso",
-    "coord": [56.155630, 10.207800]
-    },
-    {
+    "coord": [56.15563, 10.2078],
+    "adresse": " ugler i mosen 21",
+    "billedecafe": "https://migogaalborg.dk/wp-content/uploads/2018/01/Caf%C3%A9-Peace-800x480.jpg"
+  },
+  {
     "cafe": "cafecomein",
-    "coord": [56.157660, 10.202330]
-    },
-    {
-      "cafe": "kjærskaffebar",
-      "coord": [56.152470, 10.208780]
-      },
-      {
-        "cafe": "streetcoffee",
-        "coord": [56.157590, 10.201630]
-      },
-      {
-        "cafe": "Faust",
-        "coord": [56.157237, 10.209864]
-      },
-      {
-        "cafe": "Café Gemmested",
-        "coord": [56.160603, 10.204264]
-      },
-      {
-        "cafe": "Café Gaya",
-        "coord": [56.157586, 10.201432]
-      },
-      {
-        "cafe": "MellemFolk",
-        "coord": [56.159998, 10.212800]
-      },
-      {
-        "cafe": "GLAD!",
-        "coord": [56.146937, 10.194896]
-      },
-      {
-        "cafe": "Folkeven",
-        "coord": [56.156040, 10.196853]
-      },
-      {
-        "cafe": "Bådcafé",
-        "coord": [56.138592, 10.215770]
-      },
-      {
-        "cafe": "Café Drudenfuss",
-        "coord": [56.158955, 10.209674]
-      },
-      {
-        "cafe": "La Cabra Coffee",
-        "coord": [56.159278, 10.210360]
-      },
-      {
-        "cafe": "Café Ziggy",
-        "coord": [56.173931, 10.217200]
-      },
-      {
-        "cafe": "Landcafé",
-        "coord": [56.159336, 10.209781]
-      },
-      {
-        "cafe": "Café Stiften",
-        "coord": [56.150215, 10.203433]
-      },
-      {
-        "cafe": "Hos Sofies Forældre",
-        "coord": [56.154177, 10.203406]
-      },
-      {
-        "cafe": "Café Carl",
-        "coord": [56.154607, 10.192688]
-      },
-      {
-        "cafe": "Café Kunsthal",
-        "coord": [56.154945, 10.201912]
-      },
-      {
-        "cafe": "Aarhus Street Food",
-        "coord": [56.151642, 10.209489]
-      }
-  ]
-    
+    "coord": [56.15766, 10.20233],
+    "adresse": " ugler i mosen 22",
+    "billedecafe": "https://migogaalborg.dk/wp-content/uploads/2018/01/Caf%C3%A9-Peace-800x480.jpg"
+  },
+  {
+    "cafe": "kjærskaffebar",
+    "coord": [56.15247, 10.20878],
+    "adresse": " ugler i mosen 23",
+    "billedecafe": "https://migogaalborg.dk/wp-content/uploads/2018/01/Caf%C3%A9-Peace-800x480.jpg"
+  },
+  {
+    "cafe": "streetcoffee",
+    "coord": [56.15759, 10.20163],
+    "adresse": " ugler i mosen 24",
+    "billedecafe": "https://migogaalborg.dk/wp-content/uploads/2018/01/Caf%C3%A9-Peace-800x480.jpg"
+  },
+
+  {
+    "cafe": "baresso2",
+    "coord": [56.15063, 10.2078],
+    "adresse": " ugler i mosen 24",
+    "billedecafe": "https://migogaalborg.dk/wp-content/uploads/2018/01/Caf%C3%A9-Peace-800x480.jpg"
+  },
+  {
+    "cafe": "cafecomein2",
+    "coord": [56.15766, 10.20833],
+    "adresse": " ugler i mosen 22",
+    "billedecafe": "https://migogaalborg.dk/wp-content/uploads/2018/01/Caf%C3%A9-Peace-800x480.jpg"
+  },
+  {
+    "cafe": "kjærskaffebar2",
+    "coord": [56.15947, 10.20878],
+    "adresse": " ugler i mosen 22",
+    "billedecafe": "https://migogaalborg.dk/wp-content/uploads/2018/01/Caf%C3%A9-Peace-800x480.jpg"
+  },
+  {
+    "cafe": "streetcoffee2",
+    "coord": [56.15759, 10.20463],
+    "adresse": " ugler i mosen 22",
+    "billedecafe": "https://migogaalborg.dk/wp-content/uploads/2018/01/Caf%C3%A9-Peace-800x480.jpg"
+  }
+]

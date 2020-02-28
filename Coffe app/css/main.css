@@ -1,13 +1,13 @@
 /* ---------- root variables ---------- */
 :root {
-  --dark-brown: #5E4747;
-    --beige: #E7E2DD;
-    --light-grey: #F8F8F8;
-    --dark-grey: #AAAAAA;
-  }
+  --dark-brown: #5e4747;
+  --beige: #e7e2dd;
+  --light-grey: #f8f8f8;
+  --dark-grey: #aaaaaa;
+}
 
 html {
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
   height: 100%;
   text-align: center;
   width: 100%;
@@ -17,24 +17,25 @@ html {
 body {
   margin: 0;
   overflow-x: hidden;
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
 }
 
 /*-------- text styling ------*/
 h1 {
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
   font-size: 2em;
   font-weight: 300;
+  letter-spacing: 3px;
   text-transform: uppercase;
-}
-
-h2 {
-  font-weight: 300;
-  letter-spacing: 2px;
 }
 
 h3 {
   font-weight: 400;
+  letter-spacing: 2px;
+}
+
+h2 {
+  font-weight: 300;
   letter-spacing: 2px;
 }
 
@@ -44,10 +45,10 @@ p {
 
 #logo {
   margin-top: 30%;
-  font-family: 'Galada', cursive;
+  font-family: "Galada", cursive;
   font-size: 3em;
-text-transform: none;
-color: var(--dark-brown);
+  text-transform: none;
+  color: var(--dark-brown);
 }
 
 /* ---------- tabbar styling ---------- */
@@ -76,35 +77,34 @@ color: var(--dark-brown);
 
 /* Change the color of links on hover */
 .tabbar a:hover {
-cursor: pointer;
+  cursor: pointer;
 }
 
 /* Add a color to the active/current link */
 .tabbar a.active {
-background-color: var(--beige);
+  background-color: var(--beige);
 }
 
-.map-icon img{
+.map-icon img {
   width: 60%;
- }
- 
- .chat-icon img {
-   width: 55%;
- }
- 
- .opslag-icon img {
- width: 55%;
- }
- 
- .profil-icon img {
-   width: 55%;
- }
- 
- #dropdowncafe {
-   border-radius: 0;
-   border: 1px solid var(--dark-grey);
-   margin-top: 15%;
- }
+}
+
+.chat-icon img {
+  width: 55%;
+}
+
+.opslag-icon img {
+  width: 55%;
+}
+
+.profil-icon img {
+  width: 55%;
+}
+
+#dropdowncafe {
+  border-radius: 0;
+  border: 1px solid var(--dark-grey);
+}
 
 /* ---------- page styling ---------- */
 .page {
@@ -177,7 +177,7 @@ select {
 }
 
 #mapoverlay {
- pointer-events: none;
+  pointer-events: none;
   position: absolute;
   opacity: 0;
   transition: 0.4s;
@@ -185,7 +185,11 @@ select {
   height: 100%;
   width: 100%;
   background: rgba(63, 94, 251, 0);
-background: radial-gradient(circle, rgba(63,94,251,0) 0%, rgba(0,0,0,1) 100%);
+  background: radial-gradient(
+    circle,
+    rgba(63, 94, 251, 0) 0%,
+    rgba(0, 0, 0, 1) 100%
+  );
 }
 
 #map {
@@ -212,6 +216,7 @@ background: radial-gradient(circle, rgba(63,94,251,0) 0%, rgba(0,0,0,1) 100%);
 
 #emne {
   border: 1px solid var(--dark-grey);
+  margin-bottom: 2%;
 }
 
 /* OPSLAGSTING */
@@ -223,7 +228,8 @@ background: radial-gradient(circle, rgba(63,94,251,0) 0%, rgba(0,0,0,1) 100%);
   margin-top: 2%;
 }
 
-.opslagwrap1 h2, .opslagwrap1 p{
+.opslagwrap1 h2,
+.opslagwrap1 p {
   margin: 0;
 }
 
@@ -235,10 +241,10 @@ background: radial-gradient(circle, rgba(63,94,251,0) 0%, rgba(0,0,0,1) 100%);
   margin-top: 2%;
 }
 
-.opslagwrap2 h2, .opslagwrap2 p{
+.opslagwrap2 h2,
+.opslagwrap2 p {
   margin: 0;
 }
-
 
 #profilimg {
   width: 60px;
@@ -262,14 +268,20 @@ background: radial-gradient(circle, rgba(63,94,251,0) 0%, rgba(0,0,0,1) 100%);
 
 /* FJERNER GOOGLES LOGO OG LORT */
 /* Ulovligheder vær forsigtig */
-a[href^="http://maps.google.com/maps"]{display:none !important}
-a[href^="https://maps.google.com/maps"]{display:none !important}
+a[href^="http://maps.google.com/maps"] {
+  display: none !important;
+}
+a[href^="https://maps.google.com/maps"] {
+  display: none !important;
+}
 
-.gmnoprint a, .gmnoprint span, .gm-style-cc {
-    display:none;
+.gmnoprint a,
+.gmnoprint span,
+.gm-style-cc {
+  display: none;
 }
 .gmnoprint div {
-    background:none !important;
+  background: none !important;
 }
 
 input {
@@ -282,7 +294,7 @@ input {
   height: 100vh;
 }
 
-#darkbg{
+#darkbg {
   height: 100%;
   width: 100vw;
   background: black;
@@ -309,7 +321,7 @@ video {
   color: white;
 }
 
-#butwrapcamera div{
+#butwrapcamera div {
   margin: 5%;
 }
 
@@ -356,18 +368,19 @@ video {
 }*/
 
 #imagePreview {
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
   height: 30vw;
   width: 90vw;
-  background-color: var(--light-grey);
-  border: 1px solid var(--dark-grey);
-  margin: auto;
+  background-color: rgba(0, 0, 255, 0.301);
 }
 
 #profileimagePreview {
-  height: 30vw;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  height: 20vw;
   width: 90vw;
-  background-color: var(--beige);
-  border: 1px solid var(--light-grey);
+  background-color: rgb(255, 179, 0);
   margin-top: 5%;
 }
 
@@ -409,7 +422,7 @@ video {
 
 #tid {
   width: 22%;
-  margin-right: 5%; 
+  margin-right: 5%;
 }
 
 #personer1 {
@@ -432,9 +445,10 @@ video {
   margin-right: 8%;
 }
 
-#klikkedopslagoverlaywrap p, #klikkedopslagoverlaywrap h2{
-margin: 0;
-font-weight: 300;
+#klikkedopslagoverlaywrap p,
+#klikkedopslagoverlaywrap h2 {
+  margin: 0;
+  font-weight: 300;
 }
 
 #userwrapstuff {
@@ -479,7 +493,7 @@ font-weight: 300;
 }
 
 #Obutwrap {
-  height: 30%;
+  height: 15%;
   background: var(--light-grey);
 }
 
@@ -487,7 +501,7 @@ font-weight: 300;
   position: relative;
   float: right;
   width: 25%;
-  height: 25%;
+  height: 40%;
   border-radius: 15px;
   background-color: var(--dark-brown);
   color: white;
@@ -503,7 +517,7 @@ font-weight: 300;
 }
 
 #OpslagsInf {
-  height: 100%;
+  height: 25%;
   width: 100%;
   background: var(--light-grey);
   display: flex;
@@ -526,16 +540,16 @@ font-weight: 300;
 }
 
 #OPInftekstwrap {
-height: 50%;
-width: 100%;
-background: var(--light-grey);
+  height: 60%;
+  width: 100%;
+  background: var(--light-grey);
 }
 
 #MoreButwrap {
-height: 50%;
-width: 100%;
-display: flex;
-justify-content: space-between;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
 #chatbut {
@@ -581,10 +595,7 @@ form button {
   border-radius: 20px;
   color: #ffffff !important;
   background-color: var(--dark-brown);
-}
-
-.formstyle {
-  margin-bottom: 20%;
+  width: 50%;
 }
 
 input,
@@ -602,15 +613,14 @@ select {
 }
 
 .firebaseui-container {
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
   background-color: var(--beige);
   border-radius: 20px;
 }
 
 #firebaseui-auth-container {
-margin-left: 2%;
-margin-right: 2%;
-margin-bottom: 40%;
+  margin-left: 2%;
+  margin-right: 2%;
 }
 
 .firebaseui-title {
@@ -618,8 +628,8 @@ margin-bottom: 40%;
 }
 
 .mdl-button--raised.mdl-button--colored {
-background: var(--dark-brown);
-width: 10%;
+  background: var(--dark-brown);
+  width: 10%;
 }
 
 .mdl-textfield__label:after {
@@ -630,30 +640,30 @@ width: 10%;
   background-color: var(--dark-brown);
 }
 
-.mdl-textfield__input { 
-background-color: var(--beige);
-font-family: 'Raleway', sans-serif;
+.mdl-textfield__input {
+  background-color: var(--beige);
+  font-family: "Raleway", sans-serif;
 }
 
 .mdl-button {
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
 }
 
 .firebaseui-form-actions {
-text-align: center;
+  text-align: center;
 }
 
 .firebaseui-link {
-color: black;
+  color: black;
 }
 
 #butbubtu {
-text-align: end;
-text-transform: uppercase;
-font-weight: 500;
-background-color: white;
-margin-bottom: 10%;
-padding-bottom: 10%;
+  text-align: end;
+  text-transform: uppercase;
+  font-weight: 500;
+  background-color: white;
+  margin-bottom: 10%;
+  padding-bottom: 10%;
 }
 
 #butbubtu {
@@ -675,7 +685,6 @@ padding-bottom: 10%;
   border: 1px solid var(--light-grey);
 }
 
-
 /*------------------------------------joine knap og indhold-------------------------------*/
 .joinet {
   display: none; /* Hidden by default */
@@ -687,8 +696,8 @@ padding-bottom: 10%;
   width: 100%; /* Full width */
   height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
 }
 
 /* Modal Content */
@@ -715,4 +724,21 @@ padding-bottom: 10%;
   color: #000;
   text-decoration: none;
   cursor: pointer;
+}
+
+#logOut {
+  height: 70px;
+  width: 70px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 90%;
+  top: 5%;
+  background: purple;
+  z-index: 999999;
+}
+
+/* billeder til opslag*/
+#wrapperimg {
+  width: 100%;
+  height: 150%;
 }
