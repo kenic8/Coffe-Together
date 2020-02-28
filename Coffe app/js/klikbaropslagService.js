@@ -1,10 +1,6 @@
 import { firebaseDB } from "./firebase.js";
 import { savedimgurl } from "./cameraservice.js";
 import { adressejson } from "./map.js";
-<<<<<<< HEAD
-=======
-import  addToOpslag  from "./addService.js";
->>>>>>> master
 
 // let aktivitoplag;
 // let searchGroup;
@@ -64,7 +60,7 @@ function showopslag(i, beacons, whatpage) {
   <p>${beacons[i].emne}</p>
   </div>
   <div id="infoogshit">
-  <p><img id="personer" src="images/account.png">${beacons[i].personer}</p>
+  <p><img id="personer" src="images/account.png"> ${beacons[i].personer}</p>
   <p><img id="tid" src="images/clock.png">tid</p>
   </div>
   </div>
@@ -92,14 +88,7 @@ function klikbareOpslag(ActiveClassList, specificopslagdivs) {
             }')"></div>
           </div>
           <div id="Obutwrap">
-          <button id="Jbutton">Join</button>
-          <div id="joiner" class="joinet">
-          <div class="join-content">
-          <span class="lukke">&times;</span>
-          <h2>Tillykke!</h2> <br>
-         <p> Du har nu joinet</p>
-        </div>
-      </div>
+          <div id="Jbutton">Join!</div>
           </div>
           <div id="OpslagsInf">
               <div id="OPImg" style="background-image: url('${
@@ -139,45 +128,14 @@ function klikbareOpslag(ActiveClassList, specificopslagdivs) {
             "opslagklikwrapwrap"
           ).innerHTML = htmlTemplate2;
         });
-<<<<<<< HEAD
-=======
-
-              // Get the element by id -- joiner
-              let join = document.getElementById("joiner");
-
-              // Get the button that opens the join
-              let btn = document.getElementById("Jbutton");
-
-              // Get the <span> element that closes the join box
-              let spanns = document.getElementsByClassName("lukke")[0];
-
-              // When the user clicks the button, open the join box
-              btn.onclick = function() {
-                new addToOpslag();
-                join.style.display = "block";
-                // join funtion kan nu add en bruger
-                
-              }
-
-              // When the user clicks on <span> (x), close the box
-              spanns.onclick = function() {
-                join.style.display = "none";
-              }
->>>>>>> master
     });
   }
 }
 function jsonmarkers(i) {
-<<<<<<< HEAD
   document.getElementById("imgwrap").innerHTML = `
   <h2 id="adresesetag">${adressejson[i].cafe}</h2>
   <p id="adresesetag">${adressejson[i].adresse}</p>
   <img id="wrapperimg"src="${adressejson[i].billedecafe}">
-=======
-  document.getElementById(
-    "imgwrap"
-  ).innerHTML = `${adressejson[i].adresse},<img id="wrapperimg"src="${adressejson[i].billedecafe}">
->>>>>>> master
   `;
 }
 
@@ -193,12 +151,7 @@ function createBeacon(cafe, profilimg, name, alder, emne, img, personer, tid) {
     personer: personer,
     tid: tid
   };
-<<<<<<< HEAD
   firebaseDB.collection("opslag").add(newOpslag);
-=======
-   let userId = firebase.auth().currentUser.uid;
-  firebaseDB.collection("opslag").doc(userId).set(newOpslag);
->>>>>>> master
 }
 
 // ========== CREATE ==========
@@ -209,10 +162,8 @@ function getopslaginf(savedbruger) {
   let alder = savedbruger.alder;
   let profilimg = savedbruger.profilimg;
   let emneInput = document.querySelector("#emne");
-<<<<<<< HEAD
-=======
   let personer = 1;
->>>>>>> master
+
   createBeacon(
     cafeInput.value,
     profilimg,
@@ -220,11 +171,7 @@ function getopslaginf(savedbruger) {
     alder,
     emneInput.value,
     savedimgurl,
-<<<<<<< HEAD
-    "personer",
-=======
     personer,
->>>>>>> master
     "tid"
   );
 }
