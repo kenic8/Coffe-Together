@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Coffee Together</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta
+      name="description"
+      content="Mød nye mennesker over en god kop kaffe"
+    />
+    <meta name="author" content="Jesson, Carl, Kevin, Victoria" />
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css"
+    />
+    <link rel="stylesheet" href="css/main.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Raleway&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Galada&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body onhashchange="pageChange()">
+    <!-- tabbar navigation -->
+    <nav class="tabbar">
+      <a class="map-icon" href="#home"><img src="images/map.png" />Kort</a>
+      <a class="opslag-icon" href="#"><img src="images/chat.png" />Chat</a>
+      <a class="chat-icon" href="#side2"><img src="images/bell.png" />Opslag</a>
+      <a class="profil-icon" href="#profil"
+        ><img src="images/account.png" />Profil</a
+      >
+    </nav>
+
+    <!-- <video autoplay style="display: none;"></video> -->
+    <!-- canvas -->
+    <div id="opslagklikwrapwrap"></div>
+    <canvas style="display:none;"></canvas>
+    <div id="camereholderDiv"></div>
+    <!-- pages -->
+
+    <section id="content"></section>
+
+    <!-- create page -->
+
+    <!-- Mao API -->
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDV4i1136Altv5jZLueDEt5gMTHO5dyU6o"
+      async
+      defer
+    ></script>
+
+    <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-app.js"></script>
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.4.0/firebase-ui-auth__da.js"></script>
+
+    <!-- scipts  -->
+    <script src="main.js" type="module"></script>
+  </body>
+</html>

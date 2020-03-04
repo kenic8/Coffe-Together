@@ -1,0 +1,33 @@
+[
+  {
+    "cafe": "Café Gemmestedet",
+    "coord": [56.160603, 10.204264],
+    "adresse": "Gammel Munkegade 1, 8000 Aarhus C",
+    "billedecafe": "http://www.vinkaarhus.dk/wp-content/uploads/2016/06/vinkplacefileTRxWgPPEKCoiHuIFYtBH-900x471.jpg"
+  },
+
+  {
+    "cafe": "Café Ziggy",
+    "coord": [56.173931, 10.2172],
+    "adresse": "Tordenskjoldsgade 96, 8000 Aarhus C",
+    "billedecafe": "https://aarhusupdate.dk/wp-content/uploads/2013/10/Caf%C3%A9-Ziggy-Sidewalk-ved-%C3%A5en.jpg"
+  },
+  {
+    "cafe": "Café Come In",
+    "coord": [56.15766, 10.20233],
+    "adresse": "Vestergade 46, 8000 Aarhus C",
+    "billedecafe": "https://scontent-cph2-1.xx.fbcdn.net/v/t1.0-9/82525170_2803018556420863_7759922927868313600_n.jpg?_nc_cat=103&_nc_sid=110474&_nc_ohc=v6IZfkrn0zEAX_WRiet&_nc_ht=scontent-cph2-1.xx&oh=2c30c0b0af459aa7daa168f432aab79d&oe=5EF1EB1A"
+  },
+  {
+    "cafe": "Hos Sofies Forældre",
+    "coord": [56.154177, 10.203406],
+    "adresse": "Frederiksgade 74, 8000 Aarhus C",
+    "billedecafe": "https://aarhusupdate.dk/wp-content/uploads/2013/10/Hos-Sofies-For%C3%A6ldre.jpg"
+  },
+  {
+    "cafe": "Street Coffee",
+    "coord": [56.14814, 10.19767],
+    "adresse": "Jægergårdsgade 15, 8000 Aarhus C",
+    "billedecafe": "https://aarhusupdate.dk/wp-content/uploads/2014/08/Street-Coffee-i-Brannersgade-p%C3%A5-Frederiksbjerg.jpg"
+  }
+]
